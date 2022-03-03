@@ -3,6 +3,7 @@ import IsAnon from './components/IsAnon';
 import IsPrivate from './components/IsPrivate';
 import Navbar from './components/Navbar';
 import { AuthProviderWrapper } from './context/auth.context';
+import DiariesList from './pages/DiariesList';
 import Home from './pages/Home';
 import LoginPage from './pages/LoginPage';
 import Protected from './pages/Protected';
@@ -13,6 +14,7 @@ function App() {
     <AuthProviderWrapper>
       <Navbar />
       <Routes>
+        <Route path="/diaries" element={<DiariesList />} />
         <Route path="/" element={<Home />} />
         <Route
           path="/protected"

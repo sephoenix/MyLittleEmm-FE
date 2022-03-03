@@ -5,7 +5,11 @@ import { AuthContext } from '../context/auth.context';
 function SignupPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
+  const [dadName, setDadName] = useState('');
+  const [momName, setMomName] = useState('');
+  const [babyName, setBabyName] = useState('');
+  const [babyBirthday, setBabyBirthday] = useState('');
+
   const [errorMessage, setErrorMessage] = useState(undefined);
   const { signup } = useContext(AuthContext);
 
@@ -13,7 +17,10 @@ function SignupPage() {
 
   const handleEmail = e => setEmail(e.target.value);
   const handlePassword = e => setPassword(e.target.value);
-  const handleName = e => setName(e.target.value);
+  const handleDadName = e => setDadName(e.target.value);
+  const handleMomName = e => setMomName(e.target.value);
+  const handleBabyName = e => setBabyName(e.target.value);
+  const handlebabyBirthday = e => setBabyBirthday(e.target.value);
 
   const handleSignupSubmit = e => {
     e.preventDefault();
@@ -44,8 +51,17 @@ function SignupPage() {
         <label>Password:</label>
         <input type="password" name="password" value={password} onChange={handlePassword} />
 
-        <label>Name:</label>
-        <input type="text" name="name" value={name} onChange={handleName} />
+        <label>dadName:</label>
+        <input type="text" name="dadName" value={dadName} onChange={handleDadName} />
+
+        <label>momName:</label>
+        <input type="text" name="momName" value={momName} onChange={handleMomName} />
+
+        <label>babyName:</label>
+        <input type="text" name="babyName" value={babyName} onChange={handleBabyName} />
+
+        <label>babyBirthday:</label>
+        <input type="date" name="babyBirthday" value={babyBirthday} onChange={handlebabyBirthday} />
 
         <button type="submit">Sign Up</button>
       </form>
