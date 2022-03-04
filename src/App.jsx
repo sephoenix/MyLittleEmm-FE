@@ -1,8 +1,10 @@
 import { Route, Routes } from 'react-router-dom';
+import AddDiary from './components/AddDiary';
 import IsAnon from './components/IsAnon';
 import IsPrivate from './components/IsPrivate';
 import Navbar from './components/Navbar';
 import { AuthProviderWrapper } from './context/auth.context';
+import DiariesDetails from './pages/DiariesDetails';
 import DiariesList from './pages/DiariesList';
 import Home from './pages/Home';
 import LoginPage from './pages/LoginPage';
@@ -15,6 +17,8 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/diaries" element={<DiariesList />} />
+        <Route path="/diaries/add" element={<AddDiary />} />
+        <Route path="/diaries/:diaryId" element={<DiariesDetails />} />
         <Route path="/" element={<Home />} />
         <Route
           path="/protected"
