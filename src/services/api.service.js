@@ -40,6 +40,14 @@ class ApiService {
   getAllDiaries = () => {
     return this.api.get('/api/diaries');
   };
+
+  postOneDiary = requestBody => {
+    return this.api.post('/api/diaries', requestBody);
+  };
+
+  getDiaryById = diaryId => {
+    return this.api.get(`/api/diaries/${diaryId}`);
+  };
 }
 
 // Create one instance (object) of the service
