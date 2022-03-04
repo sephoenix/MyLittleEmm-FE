@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 
-function Diary({ name, diariesId }) {
+function Diary({ name, id }) {
   return (
     <div>
-      <Link to={`/diaries/${diariesId}`}>
+      <Link to={`/diaries/${id}`}>
         <h2>{name}</h2>
       </Link>
     </div>
