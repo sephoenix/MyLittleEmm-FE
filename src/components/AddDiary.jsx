@@ -1,18 +1,19 @@
 import { useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import apiService from '../services/api.service';
 
 function AddDiary() {
   const [name, setName] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = e => {
     e.preventDefault();
     const requestBody = { name };
     apiService
-      .postOneDiary(requestBody)
+      .postOnePage(requestBody)
       .then(response => {
         console.log(response);
-        <Navigate to="/diaries" />;
+        navigate('/pages');
       })
       .catch(e => console.log(e));
   };
