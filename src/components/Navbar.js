@@ -23,7 +23,10 @@ function Navbar() {
           <span>{user && user.name}</span>
         </>
       )}
-
+      <Link to="/diaries">
+        {' '}
+        <button>Diaries</button>{' '}
+      </Link>
       {!isLoggedIn && (
         <>
           <Link to="/signup">

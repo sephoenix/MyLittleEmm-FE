@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import AddDiary from './components/AddDiary';
+import AddPage from './components/AddPage';
 import IsAnon from './components/IsAnon';
 import IsPrivate from './components/IsPrivate';
 import Navbar from './components/Navbar';
@@ -19,6 +20,7 @@ function App() {
         <Route path="/diaries" element={<DiariesList />} />
         <Route path="/diaries/add" element={<AddDiary />} />
         <Route path="/diaries/:diaryId" element={<DiariesDetails />} />
+        <Route path="/diaries/:diaryId/add" element={<AddPage />} />
         <Route path="/" element={<Home />} />
         <Route
           path="/protected"
