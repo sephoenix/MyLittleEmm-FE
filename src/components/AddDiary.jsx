@@ -10,10 +10,10 @@ function AddDiary() {
     e.preventDefault();
     const requestBody = { name };
     apiService
-      .postOnePage(requestBody)
+      .postOneDiary(requestBody)
       .then(response => {
         console.log(response);
-        navigate('/pages');
+        navigate(`/diaries/${response.data._id}`);
       })
       .catch(e => console.log(e));
   };

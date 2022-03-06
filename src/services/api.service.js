@@ -50,7 +50,7 @@ class ApiService {
   };
 
   postOnePage = (requestBody, diaryId) => {
-    return this.api.post(`/api/diaries/${diaryId}/`, requestBody);
+    return this.api.post(`/api/diaries/${diaryId}/pages/add`, requestBody);
   };
 
   getAllPages = diaryId => {

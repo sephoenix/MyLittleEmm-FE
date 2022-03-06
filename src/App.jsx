@@ -5,8 +5,9 @@ import IsAnon from './components/IsAnon';
 import IsPrivate from './components/IsPrivate';
 import Navbar from './components/Navbar';
 import { AuthProviderWrapper } from './context/auth.context';
-import DiariesDetails from './pages/DiariesDetails';
+import DiaryDetails from './pages/DiaryDetails';
 import DiariesList from './pages/DiariesList';
+import PageDetails from './pages/PageDetails';
 import Home from './pages/Home';
 import LoginPage from './pages/LoginPage';
 import Protected from './pages/Protected';
@@ -19,8 +20,9 @@ function App() {
       <Routes>
         <Route path="/diaries" element={<DiariesList />} />
         <Route path="/diaries/add" element={<AddDiary />} />
-        <Route path="/diaries/:diaryId" element={<DiariesDetails />} />
-        <Route path="/diaries/:diaryId/add" element={<AddPage />} />
+        <Route path="/diaries/:diaryId" element={<DiaryDetails />} />
+        <Route path="/diaries/:diaryId/pages/add" element={<AddPage />} />
+        <Route path="/pages/:pageId" element={<PageDetails />} />
         <Route path="/" element={<Home />} />
         <Route
           path="/protected"
