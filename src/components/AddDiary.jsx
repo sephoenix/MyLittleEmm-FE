@@ -3,14 +3,24 @@ import { useNavigate } from 'react-router-dom';
 import apiService from '../services/api.service';
 
 function AddDiary() {
-  const [name, setName] = useState('');
+  const [diary, setDiary] = useState({
+    name: '',
+  });
   const navigate = useNavigate();
+
+  const handleChange = e => {
+    setDiary(prev => {
+      return {
+        ...prev,
+        [e.target.name]: e.target.value,
+      };
+    });
+  };
 
   const handleSubmit = e => {
     e.preventDefault();
-    const requestBody = { name };
     apiService
-      .postOneDiary(requestBody)
+      .postOneDiary(diary)
       .then(response => {
         console.log(response);
         navigate(`/diaries/${response.data._id}`);
@@ -23,7 +33,7 @@ function AddDiary() {
       <h2>Add Diary</h2>
       <form onSubmit={handleSubmit}>
         <label>Name:</label>
-        <input type="text" name="name" value={name} onChange={e => setName(e.target.value)} />
+        <input type="text" name="name" value={diary.name} onChange={handleChange} />
         <button type="submit">Create new Diary</button>
       </form>
     </div>
