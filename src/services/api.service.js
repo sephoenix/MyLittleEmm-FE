@@ -60,6 +60,10 @@ class ApiService {
   putOneDiary = (diaryId, requestBody) => {
     return this.api.put(`/api/diaries/${diaryId}/edit`, requestBody);
   };
+
+  deleteDiary = diaryId => {
+    return this.api.delete(`/api/diaries/${diaryId}/delete`);
+  };
 }
 
 // Create one instance (object) of the service

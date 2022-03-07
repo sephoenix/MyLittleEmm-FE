@@ -40,12 +40,22 @@ function EditDiary() {
       .catch(err => console.log(err));
   };
 
+  const deleteDiary = () => {
+    apiService
+      .deleteDiary(diaryId)
+      .then(() => {
+        navigate('/diaries');
+      })
+      .catch(err => console.log(err));
+  };
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
         <label>Name:</label>
         <input type="text" name="name" value={diary.name} onChange={handleChange} />
         <button type="submit">Edit Diary</button>
+        <button onClick={deleteDiary}>Delete Diary</button>
       </form>
     </div>
   );
