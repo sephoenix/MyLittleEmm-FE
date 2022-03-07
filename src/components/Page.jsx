@@ -1,4 +1,4 @@
-function Diary({ content }) {
+function Page({ content }) {
   return (
     <div>
       <h2>{content}</h2>
@@ -6,4 +6,4 @@ function Diary({ content }) {
   );
 }
 
-export default Diary;
+export default Page;

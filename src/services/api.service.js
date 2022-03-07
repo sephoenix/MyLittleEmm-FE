@@ -49,6 +49,14 @@ class ApiService {
     return this.api.get(`/api/diaries/${diaryId}`);
   };
 
+  putOneDiary = (diaryId, requestBody) => {
+    return this.api.put(`/api/diaries/${diaryId}/edit`, requestBody);
+  };
+
+  deleteDiary = diaryId => {
+    return this.api.delete(`/api/diaries/${diaryId}/delete`);
+  };
+
   postOnePage = (requestBody, diaryId) => {
     return this.api.post(`/api/diaries/${diaryId}/pages/add`, requestBody);
   };
@@ -57,12 +65,16 @@ class ApiService {
     return this.api.get(`/api/diaries/${diaryId}/pages`);
   };
 
-  putOneDiary = (diaryId, requestBody) => {
-    return this.api.put(`/api/diaries/${diaryId}/edit`, requestBody);
+  getPageById = (diaryId, pageId) => {
+    return this.api.get(`/api/diaries/${diaryId}/${pageId}`);
   };
 
-  deleteDiary = diaryId => {
-    return this.api.delete(`/api/diaries/${diaryId}/delete`);
+  putOnePage = (diaryId, pageId, requestBody) => {
+    return this.api.put(`/api/diaries/${diaryId}/${pageId}/edit`, requestBody);
+  };
+
+  deleteOnePage = (diaryId, pageId) => {
+    return this.api.delete(`/api/diaries/${diaryId}/${pageId}/delete`);
   };
 }
 

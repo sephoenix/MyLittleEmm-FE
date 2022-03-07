@@ -13,6 +13,7 @@ import LoginPage from './pages/LoginPage';
 import Protected from './pages/Protected';
 import SignupPage from './pages/SignupPage';
 import EditDiary from './components/EditDiary';
+import EditPage from './components/EditPage';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/diaries/:diaryId" element={<DiaryDetails />} />
         <Route path="/diaries/:diaryId/pages/add" element={<AddPage />} />
         <Route path="/pages/:pageId" element={<PageDetails />} />
+        <Route path="/diaries/:diaryId/:pageId/edit" element={<EditPage />} />
         <Route path="/" element={<Home />} />
         <Route
           path="/protected"
