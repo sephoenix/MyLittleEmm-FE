@@ -56,6 +56,10 @@ class ApiService {
   getAllPages = diaryId => {
     return this.api.get(`/api/diaries/${diaryId}/pages`);
   };
+
+  putOneDiary = (diaryId, requestBody) => {
+    return this.api.put(`/api/diaries/${diaryId}/edit`, requestBody);
+  };
 }
 
 // Create one instance (object) of the service

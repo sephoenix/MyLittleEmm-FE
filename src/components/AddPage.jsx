@@ -64,8 +64,8 @@ function AddPage() {
         <label>Public:</label>
         <select type="dropdown" name="isPublic" value={newPage.isPublic} onChange={handleChange}>
           {' '}
-          <option value="Yes">Yes</option>
-          <option value="No">No</option>
+          <option value={true}>Yes</option>
+          <option value={false}>No</option>
         </select>
         <label>Content:</label>
         <input type="textarea" name="content" value={newPage.content} onChange={handleChange} />

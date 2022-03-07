@@ -30,12 +30,18 @@ function DiaryDetail() {
       ) : (
         <p>There are no pages written yet in this diary. Create one!</p>
       )}
-      <Link to={`/diaries/${diaryId}/add`}>
-        <button>Add new diary</button>
-      </Link>
-      <Link to={`/diaries/${diaryId}/pages/add`}>
-        <button>Add Page</button>
-      </Link>
+      <div>
+        {' '}
+        <Link to={`/diaries/${diaryId}/edit`}>
+          <button>Edit Diary</button>
+        </Link>
+        <Link to="diaries/delete">
+          <button>Delete Diary</button>
+        </Link>
+        <Link to={`/diaries/${diaryId}/pages/add`}>
+          <button>Add Page</button>
+        </Link>
+      </div>
     </div>
   );
 }

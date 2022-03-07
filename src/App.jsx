@@ -12,6 +12,7 @@ import Home from './pages/Home';
 import LoginPage from './pages/LoginPage';
 import Protected from './pages/Protected';
 import SignupPage from './pages/SignupPage';
+import EditDiary from './components/EditDiary';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Routes>
         <Route path="/diaries" element={<DiariesList />} />
         <Route path="/diaries/add" element={<AddDiary />} />
+        <Route path="/diaries/:diaryId/edit" element={<EditDiary />} />
         <Route path="/diaries/:diaryId" element={<DiaryDetails />} />
         <Route path="/diaries/:diaryId/pages/add" element={<AddPage />} />
         <Route path="/pages/:pageId" element={<PageDetails />} />
