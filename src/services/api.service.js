@@ -65,9 +65,7 @@ class ApiService {
     return this.api.get(`/api/diaries/${diaryId}/pages`);
   };
 
-  getPageById = (diaryId, pageId) => {
-    return this.api.get(`/api/diaries/${diaryId}/${pageId}`);
-  };
+  getPageById = (pageId) => this.api.get(`/api/pages/${pageId}`);
 
   putOnePage = (diaryId, pageId, requestBody) => {
     return this.api.put(`/api/diaries/${diaryId}/${pageId}/edit`, requestBody);

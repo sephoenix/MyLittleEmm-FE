@@ -20,7 +20,7 @@ function DiaryDetail() {
       {pages.length > 0 ? (
         <ul>
           {pages.map(elem => (
-            <Link key={elem._id} to={`/diaries/${diaryId}/${elem._id}`}>
+            <Link key={elem._id} to={`/diaries/pages/${elem._id}`}>
               <li>
                 {elem.whoWrites}: {elem.content}
               </li>

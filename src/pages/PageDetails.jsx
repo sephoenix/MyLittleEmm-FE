@@ -4,23 +4,23 @@ import apiService from '../services/api.service';
 
 function PageDetails() {
   const { pageId } = useParams();
-  const { diaryId } = useParams();
-  const [page, setPage] = useState();
+  // const { diaryId } = useParams();
+  const [page, setPage] = useState({});
 
   useEffect(() => {
     apiService
-      .getPageById(diaryId, pageId)
+      .getPageById(pageId)
       .then(response => {
         console.log('response', response);
         setPage(response.data);
       })
       .catch(err => console.log(err));
   }, []);
-  console.table(page);
 
   return (
     <div>
-      <h1>Page content:{page[0].content}</h1>
+      <h1>Page content:{page.length > 0 ? page.content : 'No pages yet'}</h1>
+      <p>Baby height: {page.babyHeight}</p>
     </div>
   );
 }
