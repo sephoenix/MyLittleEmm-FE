@@ -20,7 +20,7 @@ function EditPage() {
 
   useEffect(() => {
     apiService
-      .getPageById(pageId)
+      .getPageById(diaryId, pageId)
       .then(response => {
         setEditedPage(response.data);
       })
