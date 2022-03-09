@@ -41,8 +41,7 @@ function EditPage() {
       .putOnePage(pageId, editedPage)
       .then(response => {
         console.log(response);
-        /* navigate(`/pages/${pageId}`); */
-        navigate('/diaries');
+        navigate(`/pages/${pageId}`);
       })
       .catch(err => console.log(err));
   };
@@ -90,8 +89,8 @@ function EditPage() {
         <label>Content:</label>
         <input type="textarea" name="content" value={editedPage.content} onChange={handleChange} />
         <button type="submit">Update Page</button>
-        <button onClick={deletePage}>Delete Page</button>
       </form>
+      <button onClick={deletePage}>Delete Page</button>
     </div>
   );
 }

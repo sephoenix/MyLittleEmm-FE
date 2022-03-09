@@ -33,7 +33,7 @@ function EditDiary() {
       .putOneDiary(diaryId, { name: diary.name })
       .then(response => {
         console.log(response);
-        navigate(`/diaries/`);
+        navigate(`/diaries`);
       })
       .catch(err => console.log(err));
   };
