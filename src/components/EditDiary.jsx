@@ -16,7 +16,7 @@ function EditDiary() {
         setDiary(response.data);
       })
       .catch(err => console.log(err));
-  }, [diaryId]);
+  }, []);
 
   const handleChange = e => {
     setDiary(prev => {
@@ -27,15 +27,13 @@ function EditDiary() {
     });
   };
 
-  console.log(diary);
-
   const handleSubmit = e => {
     e.preventDefault();
     apiService
       .putOneDiary(diaryId, { name: diary.name })
       .then(response => {
         console.log(response);
-        navigate(`/diaries/${diaryId}`);
+        navigate(`/diaries/`);
       })
       .catch(err => console.log(err));
   };

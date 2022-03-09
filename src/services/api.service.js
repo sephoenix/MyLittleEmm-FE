@@ -41,8 +41,8 @@ class ApiService {
     return this.api.get('/api/diaries');
   };
 
-  postOneDiary = requestBody => {
-    return this.api.post('/api/diaries', requestBody);
+  addADiary = requestBody => {
+    return this.api.post('/api/diaries/', requestBody);
   };
 
   getDiaryById = diaryId => {
@@ -61,8 +61,8 @@ class ApiService {
     return this.api.post(`/api/pages/add`, requestBody);
   };
 
-  getAllPages = diaryId => {
-    return this.api.get(`/api/diaries/${diaryId}/pages`);
+  getAllPages = () => {
+    return this.api.get(`/api/pages`);
   };
 
   getPageById = pageId => {

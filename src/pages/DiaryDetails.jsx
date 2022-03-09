@@ -8,21 +8,23 @@ function DiaryDetail() {
 
   useEffect(() => {
     apiService
-      .getAllPages(diaryId)
+      .getAllPages()
       .then(response => {
+        console.log(response.data);
         setPages(response.data);
       })
       .catch(err => console.log(err));
   }, [diaryId]);
 
+  console.log(pages);
   return (
     <div>
       {pages.length > 0 ? (
         <ul>
-          {pages.map(elem => (
-            <Link key={elem._id} to={`/diaries/${diaryId}/${elem._id}`}>
+          {pages.map(page => (
+            <Link key={page._id} to={`/pages/${page._id}`}>
               <li>
-                {elem.whoWrites}: {elem.content}
+                {page.whoWrites}: {page.content}
               </li>
             </Link>
           ))}
@@ -35,7 +37,7 @@ function DiaryDetail() {
         <Link to={`/diaries/${diaryId}/edit`}>
           <button>Edit Diary</button>
         </Link>
-        <Link to={`/diaries/${diaryId}/pages/add`}>
+        <Link to={`/pages/add`}>
           <button>Add Page</button>
         </Link>
       </div>

@@ -20,7 +20,7 @@ function AddDiary() {
   const handleSubmit = e => {
     e.preventDefault();
     apiService
-      .postOneDiary(diary)
+      .addADiary(diary)
       .then(response => {
         console.log(response);
         navigate(`/diaries/${response.data._id}`);

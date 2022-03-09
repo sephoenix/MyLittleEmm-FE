@@ -14,18 +14,17 @@ function EditPage() {
     content: '',
   });
 
-  const { diaryId } = useParams();
   const { pageId } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
     apiService
-      .getPageById(diaryId, pageId)
+      .getPageById(pageId)
       .then(response => {
         setEditedPage(response.data);
       })
       .catch(err => console.log(err));
-  }, [diaryId]);
+  }, []);
 
   const handleChange = e => {
     setEditedPage(prev => {
@@ -42,16 +41,17 @@ function EditPage() {
       .putOnePage(pageId, editedPage)
       .then(response => {
         console.log(response);
-        navigate(`/diaries/${diaryId}/${pageId}`);
+        /* navigate(`/pages/${pageId}`); */
+        navigate('/diaries');
       })
       .catch(err => console.log(err));
   };
 
   const deletePage = () => {
     apiService
-      .deletePage(pageId)
+      .deleteOnePage(pageId)
       .then(() => {
-        navigate(`/diaries/${diaryId}`);
+        navigate('/diaries');
       })
       .catch(err => console.log(err));
   };

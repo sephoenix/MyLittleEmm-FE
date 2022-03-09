@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import apiService from '../services/api.service';
 
 function AddPage() {
   const navigate = useNavigate();
-  const { diaryId } = useParams();
   const [newPage, setPage] = useState({
     date: '',
     type: '',
@@ -29,9 +28,9 @@ function AddPage() {
   const handleSubmit = e => {
     e.preventDefault();
     apiService
-      .postOnePage(newPage, diaryId)
+      .postOnePage(newPage)
       .then(() => {
-        navigate(`/diaries/${diaryId}`);
+        navigate(`/diaries`);
       })
       .catch(e => console.log(e));
   };
