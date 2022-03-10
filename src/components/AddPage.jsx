@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import apiService from '../services/api.service';
 
 function AddPage() {
   const navigate = useNavigate();
+  const { diaryId } = useParams();
   const [newPage, setPage] = useState({
     date: '',
     type: '',
@@ -13,6 +14,7 @@ function AddPage() {
     photo: '',
     isPublic: true,
     content: '',
+    diary: diaryId,
   });
 
   const handleChange = e => {

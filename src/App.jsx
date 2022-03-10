@@ -24,7 +24,7 @@ function App() {
         <Route path="/diaries/add" element={<AddDiary />} />
         <Route path="/diaries/:diaryId/edit" element={<EditDiary />} />
         <Route path="/diaries/:diaryId" element={<DiaryDetails />} />
-        <Route path="/pages/add" element={<AddPage />} />
+        <Route path="/pages/add/:diaryId" element={<AddPage />} />
         <Route path="/pages/:pageId" element={<PageDetails />} />
         <Route path="/pages/:pageId/edit" element={<EditPage />} />
         <Route path="/" element={<Home />} />

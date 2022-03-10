@@ -37,7 +37,7 @@ function DiaryDetail() {
         <Link to={`/diaries/${diaryId}/edit`}>
           <button>Edit Diary</button>
         </Link>
-        <Link to={`/pages/add`}>
+        <Link to={`/pages/add/${diaryId}`}>
           <button>Add Page</button>
         </Link>
       </div>
