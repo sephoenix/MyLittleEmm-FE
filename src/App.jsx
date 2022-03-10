@@ -1,3 +1,4 @@
+import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import AddDiary from './components/AddDiary';
 import AddPage from './components/AddPage';

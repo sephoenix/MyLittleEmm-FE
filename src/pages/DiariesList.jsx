@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+/* import { Link } from 'react-router-dom'; */
 import Diary from '../components/Diary';
 import apiService from '../services/api.service';
 
@@ -16,10 +16,11 @@ function DiariesList() {
   }, []);
 
   return (
-    <div>
-      <Link to="/diaries/add">
+    <div className="diaries container">
+      <h1>Own Diaries</h1>
+      {/*       <Link to="/diaries/add">
         <button>Add Diary</button>
-      </Link>
+      </Link> */}
       {diaries.map(diary => (
         <Diary key={diary._id} id={diary._id} name={diary.name} />
       ))}
