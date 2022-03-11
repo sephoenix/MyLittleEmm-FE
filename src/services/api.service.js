@@ -84,6 +84,10 @@ class ApiService {
   editUser = requestBody => {
     return this.api.put(`/api/user/edit`, requestBody);
   };
+
+  uploadImage = file => {
+    return this.api.post(`/api/pages/upload/`, file);
+  };
 }
 
 // Create one instance (object) of the service

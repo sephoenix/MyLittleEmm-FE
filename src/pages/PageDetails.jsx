@@ -14,13 +14,14 @@ function PageDetails() {
       })
       .catch(err => console.log(err));
   }, []);
+  console.log(page);
 
   return (
     <div>
       <h2>{page.date}</h2>
       <h2>{page.type}</h2>
       <h2>{page.public}</h2>
-      <h2>{page.photo}</h2>
+      <img src={page.photo} alt="photo" width="200" />
       <h2>{page.whoWrites}</h2>
       <h2>{page.babyWeight}</h2>
       <h2>{page.babyHeight}</h2>

@@ -16,6 +16,7 @@ function AddPage() {
     content: '',
     diary: diaryId,
   });
+  const [imageUrl, setImageUrl] = useState('');
 
   const handleChange = e => {
     setPage(prev => {
@@ -26,6 +27,19 @@ function AddPage() {
     });
     console.log(newPage);
   };
+
+  const handleFileUpload = e => {
+    const uploadData = new FormData();
+    uploadData.append('photo', e.target.files[0]);
+    apiService
+      .uploadImage(uploadData)
+      .then(response => {
+        console.log(response.data);
+        setImageUrl(response.data.fileUrl);
+      })
+      .catch(err => console.log(err));
+  };
+  console.log('image', imageUrl);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -43,7 +57,6 @@ function AddPage() {
         <label>Date:</label>
         <input type="date" name="date" value={newPage.date} onChange={handleChange} />
         <label>Type:</label>
-        <input type="text" name="type" value={newPage.type} onChange={handleChange} />
         <select type="text" name="type" value={newPage.type} onChange={handleChange}>
           {' '}
           <option value="Info">Info</option>
@@ -61,7 +74,7 @@ function AddPage() {
         <label>Baby Height:</label>
         <input type="number" name="babyHeight" value={newPage.babyHeight} onChange={handleChange} />
         <label>Photo:</label>
-        <input type="image" name="photo" value={newPage.photo} onChange={handleChange} />
+        <input type="file" name="photo" value={newPage.photo} onChange={handleFileUpload} />
         <label>Public:</label>
         <select type="dropdown" name="isPublic" value={newPage.isPublic} onChange={handleChange}>
           {' '}
