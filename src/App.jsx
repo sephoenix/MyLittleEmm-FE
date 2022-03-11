@@ -15,6 +15,7 @@ import Protected from './pages/Protected';
 import SignupPage from './pages/SignupPage';
 import EditDiary from './components/EditDiary';
 import EditPage from './components/EditPage';
+import UserProfile from './pages/UserProfile';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path="/pages/add/:diaryId" element={<AddPage />} />
         <Route path="/pages/:pageId" element={<PageDetails />} />
         <Route path="/pages/:pageId/edit" element={<EditPage />} />
+        <Route path="/user" element={<UserProfile />} />
         <Route path="/" element={<Home />} />
         <Route
           path="/protected"

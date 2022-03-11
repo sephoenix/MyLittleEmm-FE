@@ -20,6 +20,7 @@ function Navbar() {
         {' '}
         <button>Add diary</button>{' '}
       </Link>
+      <Link to="/user">Profile</Link>
       {isLoggedIn && (
         <>
           {/*           {

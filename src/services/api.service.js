@@ -76,6 +76,10 @@ class ApiService {
   deleteOnePage = pageId => {
     return this.api.delete(`/api/pages/${pageId}/delete`);
   };
+
+  getUser = () => {
+    return this.api.get(`/api/user/`);
+  };
 }
 
 // Create one instance (object) of the service
