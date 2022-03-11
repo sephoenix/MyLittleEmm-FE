@@ -17,7 +17,7 @@ function DiariesList() {
 
   return (
     <div className="diaries container">
-      <h1>Own Diaries</h1>
+      <h1>My diaries</h1>
       {/*       <Link to="/diaries/add">
         <button>Add Diary</button>
       </Link> */}

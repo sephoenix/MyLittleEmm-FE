@@ -10,13 +10,18 @@ function DiaryDetail() {
     apiService
       .getAllPages()
       .then(response => {
-        console.log(response.data);
-        setPages(response.data);
+        let pagesArr = [];
+        for (let i = 0; i < response.data.length; i++) {
+          if (response.data[i].diary._id === diaryId) {
+            pagesArr.push(response.data[i]);
+          }
+        }
+        setPages(pagesArr);
       })
       .catch(err => console.log(err));
-  }, [diaryId]);
-
+  }, []);
   console.log(pages);
+
   return (
     <div>
       {pages.length > 0 ? (
@@ -37,7 +42,7 @@ function DiaryDetail() {
         <Link to={`/diaries/${diaryId}/edit`}>
           <button>Edit Diary</button>
         </Link>
-        <Link to={`/pages/add`}>
+        <Link to={`/pages/add/${diaryId}`}>
           <button>Add Page</button>
         </Link>
       </div>
