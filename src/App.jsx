@@ -16,6 +16,7 @@ import SignupPage from './pages/SignupPage';
 import EditDiary from './components/EditDiary';
 import EditPage from './components/EditPage';
 import UserProfile from './pages/UserProfile';
+import EditUser from './components/EditUser';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path="/pages/:pageId" element={<PageDetails />} />
         <Route path="/pages/:pageId/edit" element={<EditPage />} />
         <Route path="/user" element={<UserProfile />} />
+        <Route path="/user/edit" element={<EditUser />} />
         <Route path="/" element={<Home />} />
         <Route
           path="/protected"

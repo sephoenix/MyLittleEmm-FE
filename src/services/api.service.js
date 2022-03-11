@@ -80,6 +80,10 @@ class ApiService {
   getUser = () => {
     return this.api.get(`/api/user/`);
   };
+
+  editUser = requestBody => {
+    return this.api.put(`/api/user/edit`, requestBody);
+  };
 }
 
 // Create one instance (object) of the service
