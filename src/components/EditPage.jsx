@@ -56,11 +56,15 @@ function EditPage() {
   };
 
   return (
-    <div>
+    <div className="container">
       <form onSubmit={handleSubmit}>
-        <label>Date:</label>
+        <label>
+          <h1>Date:</h1>
+        </label>
         <input type="date" name="date" value={editedPage.date} onChange={handleChange} />
-        <label>Type:</label>
+        <label>
+          <h1>Type:</h1>
+        </label>
         <input type="text" name="type" value={editedPage.type} onChange={handleChange} />
         <select type="text" name="type" value={editedPage.type} onChange={handleChange}>
           {' '}
@@ -68,26 +72,39 @@ function EditPage() {
           <option value="Special Date">Special Date</option>
           <option value="Anecdote">Anecdote</option>
         </select>
-        <label>Who Writes:</label>
+        <label>
+          <h1>Who Writes:</h1>
+        </label>
         <select type="text" name="whoWrites" value={editedPage.whoWrites} onChange={handleChange}>
           {' '}
           <option value="Dad">Dad</option>
           <option value="Mom">Mom</option>
         </select>
-        <label>Baby Weight:</label>
+        <label>
+          <h1>Baby Weight:</h1>
+        </label>
         <input type="number" name="babyWeight" value={editedPage.babyWeight} onChange={handleChange} />
-        <label>Baby Height:</label>
+        <label>
+          <h1>Baby Height:</h1>
+        </label>
         <input type="number" name="babyHeight" value={editedPage.babyHeight} onChange={handleChange} />
-        <label>Photo:</label>
+        <label>
+          <h1>Photo:</h1>
+        </label>
         <input type="image" name="photo" value={editedPage.photo} onChange={handleChange} />
-        <label>Public:</label>
+        <label>
+          <h1>Public:</h1>
+        </label>
         <select type="dropdown" name="isPublic" value={editedPage.isPublic} onChange={handleChange}>
           {' '}
           <option value={true}>Yes</option>
           <option value={false}>No</option>
         </select>
-        <label>Content:</label>
+        <label>
+          <h1>Content:</h1>
+        </label>
         <input type="textarea" name="content" value={editedPage.content} onChange={handleChange} />
+        <br />
         <button type="submit">Update Page</button>
       </form>
       <button onClick={deletePage}>Delete Page</button>

@@ -23,7 +23,10 @@ function DiaryDetail() {
   console.log(pages);
 
   return (
-    <div>
+    <div className="container">
+      <Link to={`/diaries/${diaryId}/edit`}>
+        <button>Edit Diary</button>
+      </Link>
       {pages.length > 0 ? (
         <ul>
           {pages.map(page => (
@@ -39,9 +42,7 @@ function DiaryDetail() {
       )}
       <div>
         {' '}
-        <Link to={`/diaries/${diaryId}/edit`}>
-          <button>Edit Diary</button>
-        </Link>
+        <br />
         <Link to={`/pages/add/${diaryId}`}>
           <button>Add Page</button>
         </Link>

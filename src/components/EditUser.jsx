@@ -53,22 +53,29 @@ function EditUser() {
   console.log(editedUser);
 
   return (
-    <div>
+    <div className="container">
       <form onSubmit={handleSubmit}>
-        <label>Email:</label>
+        <label>
+          <h1>Email:</h1>
+        </label>
         <input type="email" name="email" value={editedUser.email} onChange={handleChange} />
-
-        <label>dadName:</label>
+        <label>
+          <h1>Dad:</h1>
+        </label>
         <input type="text" name="dadName" value={editedUser.dadName} onChange={handleChange} />
-
-        <label>momName:</label>
+        <label>
+          <h1>Mom:</h1>
+        </label>
         <input type="text" name="momName" value={editedUser.momName} onChange={handleChange} />
-
-        <label>babyName:</label>
+        <label>
+          <h1>Baby</h1>
+        </label>
         <input type="text" name="babyName" value={editedUser.babyName} onChange={handleChange} />
-
-        <label>babyBirthday:</label>
+        <label>
+          <h1>Baby Birthday</h1>
+        </label>
         <input type="date" name="babyBirthday" value={editedUser.babyBirthday} onChange={handleChange} />
+        <br />
         <button type="submit">Edit User</button>
       </form>
     </div>

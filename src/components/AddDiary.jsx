@@ -29,11 +29,14 @@ function AddDiary() {
   };
 
   return (
-    <div>
-      <h2>Add Diary</h2>
+    <div className="container">
+      <h1>Add Diary</h1>
       <form onSubmit={handleSubmit}>
-        <label>Name:</label>
+        <label>
+          <h2>Name:</h2>
+        </label>
         <input type="text" name="name" value={diary.name} onChange={handleChange} />
+        <br />
         <button type="submit">Create new Diary</button>
       </form>
     </div>

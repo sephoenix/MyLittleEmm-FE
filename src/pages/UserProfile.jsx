@@ -24,12 +24,12 @@ function UserProfile() {
   console.log('profile', profile);
 
   return (
-    <div>
-      <h1>{profile.email}</h1>
-      <h1>{profile.dadName}</h1>
-      <h1>{profile.momName}</h1>
-      <h1>{profile.babyName}</h1>
-      <h1>{profile.babyBirthday}</h1>
+    <div className="container">
+      <h1>Email: {profile.email}</h1>
+      <h1>Dad: {profile.dadName}</h1>
+      <h1>Mom: {profile.momName}</h1>
+      <h1>Baby: {profile.babyName}</h1>
+      <h1>Baby Birthday: {profile.babyBirthday}</h1>
       <Link to="/user/edit/">
         <button>Edit User</button>
       </Link>

@@ -18,9 +18,6 @@ function DiariesList() {
   return (
     <div className="diaries container">
       <h1>My diaries</h1>
-      {/*       <Link to="/diaries/add">
-        <button>Add Diary</button>
-      </Link> */}
       {diaries.map(diary => (
         <Diary key={diary._id} id={diary._id} name={diary.name} />
       ))}

@@ -41,28 +41,40 @@ function SignupPage() {
   };
 
   return (
-    <div className="SignupPage">
+    <div className="SignupPage container">
       <h1>Sign Up</h1>
 
       <form onSubmit={handleSignupSubmit}>
-        <label>Email:</label>
+        <label>
+          <h2>Email:</h2>
+        </label>
         <input type="email" name="email" value={email} onChange={handleEmail} />
 
-        <label>Password:</label>
+        <label>
+          <h2>Password:</h2>
+        </label>
         <input type="password" name="password" value={password} onChange={handlePassword} />
 
-        <label>dadName:</label>
+        <label>
+          <h2>Dad:</h2>
+        </label>
         <input type="text" name="dadName" value={dadName} onChange={handleDadName} />
 
-        <label>momName:</label>
+        <label>
+          <h2>Mom:</h2>
+        </label>
         <input type="text" name="momName" value={momName} onChange={handleMomName} />
 
-        <label>babyName:</label>
+        <label>
+          <h2>Baby:</h2>
+        </label>
         <input type="text" name="babyName" value={babyName} onChange={handleBabyName} />
 
-        <label>babyBirthday:</label>
+        <label>
+          <h2>Birthday</h2>
+        </label>
         <input type="date" name="babyBirthday" value={babyBirthday} onChange={handlebabyBirthday} />
-
+        <br />
         <button type="submit">Sign Up</button>
       </form>
 

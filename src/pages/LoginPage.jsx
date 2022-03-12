@@ -30,16 +30,20 @@ function LoginPage() {
   };
 
   return (
-    <div className="LoginPage">
+    <div className="LoginPage container">
       <h1>Login</h1>
 
       <form onSubmit={handleLoginSubmit}>
-        <label>Email:</label>
+        <label>
+          <h2>Email:</h2>
+        </label>
         <input type="email" name="email" value={email} onChange={handleEmail} />
 
-        <label>Password:</label>
+        <label>
+          <h2>Password:</h2>
+        </label>
         <input type="password" name="password" value={password} onChange={handlePassword} />
-
+        <br />
         <button type="submit">Login</button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}

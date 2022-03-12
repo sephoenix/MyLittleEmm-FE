@@ -17,15 +17,15 @@ function PageDetails() {
   console.log(page);
 
   return (
-    <div>
-      <h2>{page.date}</h2>
-      <h2>{page.type}</h2>
-      <h2>{page.public}</h2>
+    <div className="container">
+      <h1>Type of page: {page.type}</h1>
+      <h1>Your weight: {page.babyWeight} Kg</h1>
+      <h1>Your height: {page.babyHeight} cms</h1>
+      <h1>{page.public}</h1>
+      <h1>
+        In this date {page.date}, Your {page.whoWrites} remember that {page.content}
+      </h1>
       <img src={page.photo} alt="photo" width="200" />
-      <h2>{page.whoWrites}</h2>
-      <h2>{page.babyWeight}</h2>
-      <h2>{page.babyHeight}</h2>
-      <h2>{page.content}</h2>
       <Link to={`/pages/${pageId}/edit`}>
         <button>Edit Page</button>
       </Link>

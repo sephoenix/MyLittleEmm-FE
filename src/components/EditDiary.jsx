@@ -33,7 +33,7 @@ function EditDiary() {
       .putOneDiary(diaryId, { name: diary.name })
       .then(response => {
         console.log(response);
-        navigate(`/diaries`);
+        navigate(`/diaries/${diaryId}`);
       })
       .catch(err => console.log(err));
   };
@@ -42,17 +42,21 @@ function EditDiary() {
     apiService
       .deleteDiary(diaryId)
       .then(() => {
-        navigate('/diaries');
+        navigate(`/diaries`);
       })
       .catch(err => console.log(err));
   };
 
   return (
-    <div>
+    <div className="container">
       <form onSubmit={handleSubmit}>
-        <label>Name:</label>
+        <label>
+          <h2>Name:</h2>
+        </label>
         <input type="text" name="name" value={diary.name} onChange={handleChange} />
+        <br />
         <button type="submit">Edit Diary</button>
+        <br />
         <button onClick={deleteDiary}>Delete Diary</button>
       </form>
     </div>

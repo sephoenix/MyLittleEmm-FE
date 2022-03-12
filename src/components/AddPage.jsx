@@ -46,43 +46,60 @@ function AddPage() {
     apiService
       .postOnePage(newPage)
       .then(() => {
-        navigate(`/diaries`);
+        navigate(`/diaries/${diaryId}`);
       })
       .catch(e => console.log(e));
   };
 
   return (
-    <div>
+    <div className="container">
       <form onSubmit={handleSubmit}>
-        <label>Date:</label>
+        <label>
+          <h2>Date:</h2>
+        </label>
         <input type="date" name="date" value={newPage.date} onChange={handleChange} />
-        <label>Type:</label>
+        <label>
+          <h2>Type:</h2>
+        </label>
         <select type="text" name="type" value={newPage.type} onChange={handleChange}>
           {' '}
           <option value="Info">Info</option>
           <option value="Special Date">Special Date</option>
           <option value="Anecdote">Anecdote</option>
         </select>
-        <label>Who Writes:</label>
+        <label>
+          <h2>Who Writes:</h2>
+        </label>
         <select type="text" name="whoWrites" value={newPage.whoWrites} onChange={handleChange}>
           {' '}
           <option value="Dad">Dad</option>
           <option value="Mom">Mom</option>
         </select>
-        <label>Baby Weight:</label>
+        <label>
+          <h2>Baby Weight:</h2>
+        </label>
         <input type="number" name="babyWeight" value={newPage.babyWeight} onChange={handleChange} />
-        <label>Baby Height:</label>
+        <label>
+          <h2>Baby Height:</h2>
+        </label>
         <input type="number" name="babyHeight" value={newPage.babyHeight} onChange={handleChange} />
-        <label>Photo:</label>
+        <label>
+          <h2>Photo:</h2>
+        </label>
         <input type="file" name="photo" value={newPage.photo} onChange={handleFileUpload} />
-        <label>Public:</label>
+        <label>
+          <h2>Public:</h2>
+        </label>
         <select type="dropdown" name="isPublic" value={newPage.isPublic} onChange={handleChange}>
           {' '}
           <option value={true}>Yes</option>
           <option value={false}>No</option>
         </select>
-        <label>Content:</label>
+        <label>
+          <h2>Content:</h2>
+        </label>
         <input type="textarea" name="content" value={newPage.content} onChange={handleChange} />
+        <br />
         <button type="submit">Create new Page</button>
       </form>
     </div>
