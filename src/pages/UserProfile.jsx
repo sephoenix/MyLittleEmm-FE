@@ -17,14 +17,15 @@ function UserProfile() {
             newProfile.push(response.data[i]);
           }
         }
+
         setProfile({
-          _id: profile._id,
-          email: profile.email,
-          password: profile.password,
-          dadName: profile.dadName,
-          momName: profile.momName,
-          babyName: profile.babyName,
-          babyBirthday: profile.babyBirthday.slice(0, 10),
+          _id: newProfile[0]._id,
+          email: newProfile[0].email,
+          password: newProfile[0].password,
+          dadName: newProfile[0].dadName,
+          momName: newProfile[0].momName,
+          babyName: newProfile[0].babyName,
+          babyBirthday: newProfile[0].babyBirthday.slice(0, 10),
         });
       })
       .catch(err => console.log(err));
