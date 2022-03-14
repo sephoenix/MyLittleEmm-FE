@@ -12,7 +12,6 @@ function AddPage() {
     babyWeight: 0,
     babyHeight: 0,
     photo: '',
-    isPublic: true,
     content: '',
     diary: diaryId,
   });
@@ -53,7 +52,6 @@ function AddPage() {
         babyHeight: newPage.babyHeight,
         content: newPage.content,
         diary: newPage.diary,
-        ispublic: newPage.isPublic,
       })
       .then(() => {
         navigate(`/diaries/${diaryId}`);
@@ -97,14 +95,6 @@ function AddPage() {
           <h2>Photo:</h2>
         </label>
         <input type="file" name="photo" value={newPage.photo} onChange={handleFileUpload} />
-        <label>
-          <h2>Public:</h2>
-        </label>
-        <select type="dropdown" name="isPublic" value={newPage.isPublic} onChange={handleChange}>
-          {' '}
-          <option value={true}>Yes</option>
-          <option value={false}>No</option>
-        </select>
         <label>
           <h2>Content:</h2>
         </label>

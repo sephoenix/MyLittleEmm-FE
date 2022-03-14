@@ -10,7 +10,6 @@ function EditPage() {
     babyWeight: 0,
     babyHeight: 0,
     photo: '',
-    isPublic: true,
     content: '',
   });
 
@@ -95,11 +94,6 @@ function EditPage() {
         <label>
           <h1>Public:</h1>
         </label>
-        <select type="dropdown" name="isPublic" value={editedPage.isPublic} onChange={handleChange}>
-          {' '}
-          <option value={true}>Yes</option>
-          <option value={false}>No</option>
-        </select>
         <label>
           <h1>Content:</h1>
         </label>

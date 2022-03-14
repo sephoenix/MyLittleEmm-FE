@@ -28,13 +28,13 @@ function PageDetails() {
   console.log(page);
   return (
     <div className="container">
-      <h1>Type of page: {page.type}</h1>
-      <h1>Your weight: {page.babyWeight} Kg</h1>
-      <h1>Your height: {page.babyHeight} cms</h1>
-      <h1>
+      <p>Type of page: {page.type}</p>
+      <p>Your weight: {page.babyWeight} Kg</p>
+      <p>Your height: {page.babyHeight} cms</p>
+      <p>
         In this date {page.date}, your {page.whoWrites}, remember that:
         <br /> {page.content}
-      </h1>
+      </p>
       {page.photo && <img src={page.photo} alt="photo" width="200" />}
 
       <Link to={`/pages/${pageId}/edit`}>
