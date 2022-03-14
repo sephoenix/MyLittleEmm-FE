@@ -5,7 +5,6 @@ import apiService from '../services/api.service';
 
 function EditUser() {
   const [editedUser, setEditedUser] = useState({
-    email: '',
     dadName: '',
     momName: '',
     babyName: '',
@@ -55,10 +54,6 @@ function EditUser() {
   return (
     <div className="container">
       <form onSubmit={handleSubmit}>
-        <label>
-          <h1>Email:</h1>
-        </label>
-        <input type="email" name="email" value={editedUser.email} onChange={handleChange} />
         <label>
           <h1>Dad:</h1>
         </label>

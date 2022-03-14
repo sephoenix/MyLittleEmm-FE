@@ -8,15 +8,9 @@ function DiaryDetail() {
 
   useEffect(() => {
     apiService
-      .getAllPages()
+      .getDiaryPages(diaryId)
       .then(response => {
-        let pagesArr = [];
-        for (let i = 0; i < response.data.length; i++) {
-          if (response.data[i].diary._id === diaryId) {
-            pagesArr.push(response.data[i]);
-          }
-        }
-        setPages(pagesArr);
+        setPages(response.data);
       })
       .catch(err => console.log(err));
   }, []);

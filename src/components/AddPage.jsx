@@ -44,7 +44,17 @@ function AddPage() {
   const handleSubmit = e => {
     e.preventDefault();
     apiService
-      .postOnePage(newPage)
+      .postOnePage({
+        date: newPage.date,
+        type: newPage.type,
+        photo: imageUrl,
+        whoWrites: newPage.whoWrites,
+        babyWeight: newPage.babyWeight,
+        babyHeight: newPage.babyHeight,
+        content: newPage.content,
+        diary: newPage.diary,
+        ispublic: newPage.isPublic,
+      })
       .then(() => {
         navigate(`/diaries/${diaryId}`);
       })
