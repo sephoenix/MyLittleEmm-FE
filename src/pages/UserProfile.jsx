@@ -41,7 +41,7 @@ function UserProfile() {
       <h2>Baby: {profile.babyName}</h2>
       <h2>Baby Birthday: {profile.babyBirthday}</h2>
       <Link to="/user/edit/">
-        <button>Edit User</button>
+        <button className="btn">Edit User</button>
       </Link>
     </div>
   );

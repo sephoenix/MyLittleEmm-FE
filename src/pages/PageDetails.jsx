@@ -13,7 +13,6 @@ function PageDetails() {
     apiService
       .getPageById(pageId)
       .then(response => {
-        console.log(response.data.owner);
         setOwner(response.data.diary.owner);
       })
       .catch(err => console.log(err));
@@ -24,7 +23,6 @@ function PageDetails() {
     apiService
       .getPageById(pageId)
       .then(response => {
-        console.log(response.data);
         setPage({
           _id: response.data._id,
           date: response.data.date.slice(0, 10),

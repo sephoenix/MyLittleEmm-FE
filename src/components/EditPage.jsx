@@ -15,6 +15,7 @@ function EditPage() {
 
   const { pageId } = useParams();
   const navigate = useNavigate();
+  const [imageUrl, setImageUrl] = useState('');
 
   useEffect(() => {
     apiService
@@ -34,10 +35,31 @@ function EditPage() {
     });
   };
 
+  const handleFileUpload = e => {
+    const uploadData = new FormData();
+    uploadData.append('photo', e.target.files[0]);
+    apiService
+      .uploadImage(uploadData)
+      .then(response => {
+        setImageUrl(response.data.fileUrl);
+      })
+      .catch(err => console.log(err));
+  };
+  console.log('image', imageUrl);
+
   const handleSubmit = e => {
     e.preventDefault();
     apiService
-      .putOnePage(pageId, editedPage)
+      .putOnePage(pageId, {
+        date: editedPage.date.slice(0, 10),
+        type: editedPage.type,
+        photo: imageUrl,
+        whoWrites: editedPage.whoWrites,
+        babyWeight: editedPage.babyWeight,
+        babyHeight: editedPage.babyHeight,
+        content: editedPage.content,
+        diary: editedPage.diary,
+      })
       .then(response => {
         console.log(response);
         navigate(`/pages/${pageId}`);
@@ -54,15 +76,16 @@ function EditPage() {
       .catch(err => console.log(err));
   };
 
+  console.log(editedPage);
   return (
     <div className="container">
       <form onSubmit={handleSubmit}>
         <label>
-          <h1>Date:</h1>
+          <h2>Date:</h2>
         </label>
         <input type="date" name="date" value={editedPage.date} onChange={handleChange} />
         <label>
-          <h1>Type:</h1>
+          <h2>Type:</h2>
         </label>
         <input type="text" name="type" value={editedPage.type} onChange={handleChange} />
         <select type="text" name="type" value={editedPage.type} onChange={handleChange}>
@@ -72,7 +95,7 @@ function EditPage() {
           <option value="Anecdote">Anecdote</option>
         </select>
         <label>
-          <h1>Who Writes:</h1>
+          <h2>Who Writes:</h2>
         </label>
         <select type="text" name="whoWrites" value={editedPage.whoWrites} onChange={handleChange}>
           {' '}
@@ -80,26 +103,30 @@ function EditPage() {
           <option value="Mom">Mom</option>
         </select>
         <label>
-          <h1>Baby Weight:</h1>
+          <h2>Baby Weight:</h2>
         </label>
-        <input type="number" name="babyWeight" value={editedPage.babyWeight} onChange={handleChange} />
+        <input type="text" name="babyWeight" value={editedPage.babyWeight} onChange={handleChange} />
         <label>
-          <h1>Baby Height:</h1>
+          <h2>Baby Height:</h2>
         </label>
-        <input type="number" name="babyHeight" value={editedPage.babyHeight} onChange={handleChange} />
+        <input type="text" name="babyHeight" value={editedPage.babyHeight} onChange={handleChange} />
         <label>
-          <h1>Photo:</h1>
+          <h2>Photo:</h2>
         </label>
-        <input type="image" name="photo" value={editedPage.photo} onChange={handleChange} />
+        {editedPage.photo && (
+          <>
+            <input type="file" name="photo" value={(editedPage.photo = '')} onChange={handleFileUpload} />
+          </>
+        )}
+        <input type="file" name="photo" value={editedPage.photo} onChange={handleFileUpload} />
         <label>
-          <h1>Public:</h1>
-        </label>
-        <label>
-          <h1>Content:</h1>
+          <h2>Content:</h2>
         </label>
         <input type="textarea" name="content" value={editedPage.content} onChange={handleChange} />
         <br />
-        <button type="submit">Update Page</button>
+        <button className="btn" type="submit">
+          Update Page
+        </button>
       </form>
       <button className="btn" onClick={deletePage}>
         Delete Page
