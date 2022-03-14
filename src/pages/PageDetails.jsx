@@ -35,7 +35,8 @@ function PageDetails() {
         In this date {page.date}, your {page.whoWrites}, remember that:
         <br /> {page.content}
       </h1>
-      <img src={page.photo} alt="photo" width="200" />
+      {page.photo && <img src={page.photo} alt="photo" width="200" />}
+
       <Link to={`/pages/${pageId}/edit`}>
         <button>Edit Page</button>
       </Link>
