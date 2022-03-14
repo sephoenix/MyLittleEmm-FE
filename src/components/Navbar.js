@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from './../context/auth.context';
 
@@ -7,33 +7,32 @@ function Navbar() {
   // the values from AuthContext.Provider `value` prop
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
+  const navigate = useNavigate();
+
   return (
     <nav className="Navbar">
-      {/*       <Link to="/">
-        <button>Home</button>
-      </Link> */}
-      <Link to="/diaries">
-        {' '}
-        <button>Diaries</button>{' '}
-      </Link>
-      <Link to="/diaries/add">
-        {' '}
-        <button>Add diary</button>{' '}
-      </Link>
-      <Link to="/user">Profile</Link>
       {isLoggedIn && (
         <>
-          {/*           {
-            <Link to="/protected">
-              <button>Protected</button>
-            </Link>
-          } */}
-
-          <button onClick={logOutUser}>Logout</button>
-          <span>{user && user.name}</span>
+          <Link to="/diaries">
+            {' '}
+            <button>Diaries</button>{' '}
+          </Link>
+          <Link to="/diaries/add">
+            {' '}
+            <button>Add diary</button>{' '}
+          </Link>
+          <Link to="/user">Profile</Link>
+          <div>
+            <button onClick={() => navigate(-1)}>Go back</button>
+          </div>
+          {isLoggedIn && (
+            <>
+              <button onClick={logOutUser}>Logout</button>
+              <span>{user && user.name}</span>
+            </>
+          )}
         </>
       )}
-
       {!isLoggedIn && (
         <>
           <Link to="/signup">
@@ -43,6 +42,10 @@ function Navbar() {
           <Link to="/login">
             {' '}
             <button>Login</button>{' '}
+          </Link>
+          <Link to="/diaries">
+            {' '}
+            <button>Diaries</button>{' '}
           </Link>
         </>
       )}

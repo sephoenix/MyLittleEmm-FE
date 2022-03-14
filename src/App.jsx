@@ -24,14 +24,70 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/diaries" element={<DiariesList />} />
-        <Route path="/diaries/add" element={<AddDiary />} />
-        <Route path="/diaries/:diaryId/edit" element={<EditDiary />} />
-        <Route path="/diaries/:diaryId" element={<DiaryDetails />} />
-        <Route path="/pages/add/:diaryId" element={<AddPage />} />
-        <Route path="/pages/:pageId" element={<PageDetails />} />
-        <Route path="/pages/:pageId/edit" element={<EditPage />} />
-        <Route path="/user" element={<UserProfile />} />
-        <Route path="/user/edit" element={<EditUser />} />
+        <Route
+          path="/diaries/add"
+          element={
+            <IsPrivate>
+              <AddDiary />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/diaries/:diaryId/edit"
+          element={
+            <IsPrivate>
+              <EditDiary />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/diaries/:diaryId"
+          element={
+            <IsPrivate>
+              <DiaryDetails />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/pages/add/:diaryId"
+          element={
+            <IsPrivate>
+              <AddPage />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/pages/:pageId"
+          element={
+            <IsPrivate>
+              <PageDetails />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/pages/:pageId/edit"
+          element={
+            <IsPrivate>
+              <EditPage />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/user"
+          element={
+            <IsPrivate>
+              <UserProfile />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/user/edit"
+          element={
+            <IsPrivate>
+              <EditUser />
+            </IsPrivate>
+          }
+        />
         <Route path="/" element={<Home />} />
         <Route
           path="/protected"

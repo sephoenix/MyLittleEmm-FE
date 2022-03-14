@@ -101,7 +101,9 @@ function EditPage() {
         <br />
         <button type="submit">Update Page</button>
       </form>
-      <button onClick={deletePage}>Delete Page</button>
+      <button className="btn" onClick={deletePage}>
+        Delete Page
+      </button>
     </div>
   );
 }

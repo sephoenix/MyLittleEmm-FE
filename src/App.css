@@ -3,6 +3,7 @@ body {
   font-size: 16px;
   font-family: 'Rubik', sans-serif;
   font-style: normal;
+  background-color: var(--pink-color);
 }
 
 :root {
@@ -13,16 +14,15 @@ body {
   --grey-color: #80859a;
   --softgrey-color: #9a9cac;
   --white-color: #ffffff;
-  --red-color: red;
+  --pink-color: rgb(245, 222, 245);
 }
 
 .container {
-  padding: 0 21px 130px;
+  padding: 0 20px 100px;
   min-height: 100vh;
   max-width: 375px;
   width: 100%;
   margin: 0 auto;
-  padding-bottom: 0;
 }
 
 .Navbar {
@@ -31,10 +31,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 21px 8px;
+  padding: 10px 18px 10px;
   color: var(--white-color);
-  background-color: var(--blue-color);
-  text-align: center;
+  background-color: var(--purple-color);
 }
 
 h1 {
@@ -47,29 +46,35 @@ h1 {
 h2 {
   font-size: 20px;
 }
-/* 
 
-.diaries {
+h3 {
+  font-size: 18px;
+}
+
+p {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 25px;
+  color: var();
+}
+
+.pageCard {
+  width: 300px;
+  padding: 2px;
+  height: auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  border-radius: 10px;
+  background-color: var(--pink-color);
 }
-
-
 
 .btn {
-  border-radius: 5%;
-}
-
-button {
+  background-color: var(--purple-color);
+  color: var(--white-color);
   border-radius: 8px;
-  border: none;
-  padding-top: 15px;
-  padding-bottom: 15px;
   text-align: center;
-  font-size: 17px;
-  width: 100%;
-  margin-bottom: 13px;
+  margin: 12px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 150px;
 }
- */

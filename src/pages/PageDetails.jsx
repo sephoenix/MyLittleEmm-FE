@@ -1,10 +1,24 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { AuthContext } from '../context/auth.context';
 import apiService from '../services/api.service';
 
 function PageDetails() {
   const { pageId } = useParams();
   const [page, setPage] = useState({});
+  const [owner, setOwner] = useState('');
+  const { user } = useContext(AuthContext);
+
+  useEffect(() => {
+    apiService
+      .getPageById(pageId)
+      .then(response => {
+        console.log(response.data.owner);
+        setOwner(response.data.diary.owner);
+      })
+      .catch(err => console.log(err));
+  }, []);
+  console.log('owner', owner);
 
   useEffect(() => {
     apiService
@@ -26,6 +40,7 @@ function PageDetails() {
       .catch(err => console.log(err));
   }, []);
   console.log(page);
+
   return (
     <div className="container">
       <p>Type of page: {page.type}</p>
@@ -37,9 +52,13 @@ function PageDetails() {
       </p>
       {page.photo && <img src={page.photo} alt="photo" width="200" />}
 
-      <Link to={`/pages/${pageId}/edit`}>
-        <button>Edit Page</button>
-      </Link>
+      {user._id === owner && (
+        <>
+          <Link to={`/pages/${pageId}/edit`}>
+            <button className="btn">Edit Page</button>
+          </Link>
+        </>
+      )}
     </div>
   );
 }
