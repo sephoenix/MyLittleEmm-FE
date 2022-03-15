@@ -22,6 +22,7 @@ function EditPage() {
       .getPageById(pageId)
       .then(response => {
         setEditedPage(response.data);
+        setImageUrl(response.data.fileUrl);
       })
       .catch(err => console.log(err));
   }, []);

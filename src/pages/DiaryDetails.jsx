@@ -30,13 +30,19 @@ function DiaryDetail() {
 
   return (
     <div className="container">
+      <h1>Pages</h1>
       <div>
         {pages.length > 0 ? (
           <ul>
             {pages.map(page => (
               <Link key={page._id} to={`/pages/${page._id}`}>
                 <li className="pageCard">
-                  <h3>{page.whoWrites}:</h3> <p>{page.content}</p>
+                  <h3>
+                    {page.date.slice(0, 10)}
+                    <br />
+                    {page.whoWrites}:
+                  </h3>{' '}
+                  <p>{page.content}</p>
                 </li>
               </Link>
             ))}
