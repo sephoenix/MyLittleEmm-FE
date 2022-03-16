@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
+import Navbar from '../components/Navbar';
 
 function SignupPage() {
   const [email, setEmail] = useState('');
@@ -41,48 +42,53 @@ function SignupPage() {
   };
 
   return (
-    <div className="SignupPage container">
-      <h1>Sign Up</h1>
+    <>
+      <Navbar />
+      <div className="SignupPage container form">
+        <h1>Sign Up</h1>
+        <form onSubmit={handleSignupSubmit}>
+          <label>
+            <h2>Email:</h2>
+          </label>
+          <input className="inp" type="email" name="email" value={email} onChange={handleEmail} />
 
-      <form onSubmit={handleSignupSubmit}>
-        <label>
-          <h2>Email:</h2>
-        </label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
+          <label>
+            <h2>Password:</h2>
+          </label>
+          <input className="inp" type="password" name="password" value={password} onChange={handlePassword} />
 
-        <label>
-          <h2>Password:</h2>
-        </label>
-        <input type="password" name="password" value={password} onChange={handlePassword} />
+          <label>
+            <h2>Dad:</h2>
+          </label>
+          <input className="inp" type="text" name="dadName" value={dadName} onChange={handleDadName} />
 
-        <label>
-          <h2>Dad:</h2>
-        </label>
-        <input type="text" name="dadName" value={dadName} onChange={handleDadName} />
+          <label>
+            <h2>Mom:</h2>
+          </label>
+          <input className="inp" type="text" name="momName" value={momName} onChange={handleMomName} />
 
-        <label>
-          <h2>Mom:</h2>
-        </label>
-        <input type="text" name="momName" value={momName} onChange={handleMomName} />
+          <label>
+            <h2>Baby:</h2>
+          </label>
+          <input className="inp" type="text" name="babyName" value={babyName} onChange={handleBabyName} />
 
-        <label>
-          <h2>Baby:</h2>
-        </label>
-        <input type="text" name="babyName" value={babyName} onChange={handleBabyName} />
+          <label>
+            <h2>Birthday</h2>
+          </label>
+          <input className="inp" type="date" name="babyBirthday" value={babyBirthday} onChange={handlebabyBirthday} />
+          <br />
+          <button className="btn" type="submit">
+            Submit
+          </button>
+        </form>
 
-        <label>
-          <h2>Birthday</h2>
-        </label>
-        <input type="date" name="babyBirthday" value={babyBirthday} onChange={handlebabyBirthday} />
-        <br />
-        <button type="submit">Sign Up</button>
-      </form>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
-
-      <p>Already have account?</p>
-      <Link to={'/login'}> Login</Link>
-    </div>
+        <p>
+          Already have account? <Link to={'/login'}>Login</Link>
+        </p>
+      </div>
+    </>
   );
 }
 

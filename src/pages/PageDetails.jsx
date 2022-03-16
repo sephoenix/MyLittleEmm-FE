@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
 import apiService from '../services/api.service';
+import Navbar from '../components/Navbar';
 
 function PageDetails() {
   const { pageId } = useParams();
@@ -40,24 +41,29 @@ function PageDetails() {
   console.log(page);
 
   return (
-    <div className="container">
-      <p>Type of page: {page.type}</p>
-      <p>Your weight: {page.babyWeight} Kg</p>
-      <p>Your height: {page.babyHeight} cms</p>
-      <p>
-        In this date {page.date}, your {page.whoWrites}, remember that:
-        <br /> {page.content}
-      </p>
-      {page.photo && <img src={page.photo} alt="photo" width="200" />}
+    <>
+      <Navbar />
+      <div className="container page pageDetail">
+        <h1>Page Detail</h1>
+        <h3>Type of page: {page.type}</h3>
+        <p>
+          In this date {page.date}, your weight was {page.babyWeight} Kg and your size was {page.babyHeight} cms.
+        </p>
+        <p>
+          Your {page.whoWrites}, remember that:
+          <br /> {page.content}
+        </p>
+        {page.photo && <img src={page.photo} alt="photo" width="200" />}
 
-      {user._id === owner && (
-        <>
-          <Link to={`/pages/${pageId}/edit`}>
-            <button className="btn">Edit Page</button>
-          </Link>
-        </>
-      )}
-    </div>
+        {user._id === owner && (
+          <>
+            <Link to={`/pages/${pageId}/edit`}>
+              <button className="btn">Edit Page</button>
+            </Link>
+          </>
+        )}
+      </div>
+    </>
   );
 }
 export default PageDetails;

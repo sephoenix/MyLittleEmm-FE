@@ -13,26 +13,24 @@ function Navbar() {
     <nav className="Navbar">
       {isLoggedIn && (
         <>
-          <div>
-            <button onClick={() => navigate(-1)}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z"
-                />
-              </svg>
-            </button>
-          </div>
+          <button onClick={() => navigate(-1)}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z"
+              />
+            </svg>
+          </button>
+
           <Link to="/diaries">
-            {' '}
             <button>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -48,10 +46,9 @@ function Navbar() {
                   d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
                 />
               </svg>
-            </button>{' '}
+            </button>
           </Link>
           <Link to="/diaries/add">
-            {' '}
             <button>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +64,7 @@ function Navbar() {
                   d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
-            </button>{' '}
+            </button>
           </Link>
           <Link to="/user">
             <svg
@@ -112,16 +109,13 @@ function Navbar() {
       {!isLoggedIn && (
         <>
           <Link to="/signup">
-            {' '}
-            <button>Sign Up</button>{' '}
+            <button>Sign Up</button>
           </Link>
           <Link to="/login">
-            {' '}
-            <button>Login</button>{' '}
+            <button>Login</button>
           </Link>
           <Link to="/diaries">
-            {' '}
-            <button>Diaries</button>{' '}
+            <button>Diaries</button>
           </Link>
         </>
       )}

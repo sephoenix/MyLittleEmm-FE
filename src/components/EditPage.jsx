@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import apiService from '../services/api.service';
+import Navbar from '../components/Navbar';
 
 function EditPage() {
   const [editedPage, setEditedPage] = useState({
@@ -46,7 +47,6 @@ function EditPage() {
       })
       .catch(err => console.log(err));
   };
-  console.log('image', imageUrl);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -79,60 +79,73 @@ function EditPage() {
 
   console.log(editedPage);
   return (
-    <div className="container">
-      <form onSubmit={handleSubmit}>
-        <label>
-          <h2>Date:</h2>
-        </label>
-        <input type="date" name="date" value={editedPage.date} onChange={handleChange} />
-        <label>
-          <h2>Type:</h2>
-        </label>
-        <input type="text" name="type" value={editedPage.type} onChange={handleChange} />
-        <select type="text" name="type" value={editedPage.type} onChange={handleChange}>
-          {' '}
-          <option value="Info">Info</option>
-          <option value="Special Date">Special Date</option>
-          <option value="Anecdote">Anecdote</option>
-        </select>
-        <label>
-          <h2>Who Writes:</h2>
-        </label>
-        <select type="text" name="whoWrites" value={editedPage.whoWrites} onChange={handleChange}>
-          {' '}
-          <option value="Dad">Dad</option>
-          <option value="Mom">Mom</option>
-        </select>
-        <label>
-          <h2>Baby Weight:</h2>
-        </label>
-        <input type="text" name="babyWeight" value={editedPage.babyWeight} onChange={handleChange} />
-        <label>
-          <h2>Baby Height:</h2>
-        </label>
-        <input type="text" name="babyHeight" value={editedPage.babyHeight} onChange={handleChange} />
-        <label>
-          <h2>Photo:</h2>
-        </label>
-        {editedPage.photo && (
-          <>
-            <input type="file" name="photo" value={(editedPage.photo = '')} onChange={handleFileUpload} />
-          </>
-        )}
-        <input type="file" name="photo" value={editedPage.photo} onChange={handleFileUpload} />
-        <label>
-          <h2>Content:</h2>
-        </label>
-        <input type="textarea" name="content" value={editedPage.content} onChange={handleChange} />
-        <br />
-        <button className="btn" type="submit">
-          Update Page
+    <>
+      <Navbar />
+      <div className="container form">
+        <h1>Edit Page</h1>
+        <form onSubmit={handleSubmit}>
+          <label>
+            <h2>Date:</h2>
+          </label>
+          <input className="inp" type="date" name="date" value={editedPage.date} onChange={handleChange} />
+          <label>
+            <h2>Type:</h2>
+          </label>
+          <input type="text" name="type" value={editedPage.type} onChange={handleChange} />
+          <select type="text" name="type" value={editedPage.type} onChange={handleChange}>
+            <option value="Info">Info</option>
+            <option value="Special Date">Special Date</option>
+            <option value="Anecdote">Anecdote</option>
+          </select>
+          <label>
+            <h2>Who Writes:</h2>
+          </label>
+          <select className="inp" type="text" name="whoWrites" value={editedPage.whoWrites} onChange={handleChange}>
+            <option value="Dad">Dad</option>
+            <option value="Mom">Mom</option>
+          </select>
+          <label>
+            <h2>Baby Weight:</h2>
+          </label>
+          <input className="inp" type="text" name="babyWeight" value={editedPage.babyWeight} onChange={handleChange} />
+          <label>
+            <h2>Baby Height:</h2>
+          </label>
+          <input className="inp" type="text" name="babyHeight" value={editedPage.babyHeight} onChange={handleChange} />
+          <label>
+            <h2>Photo:</h2>
+          </label>
+          {editedPage.photo && (
+            <>
+              <input
+                className="inp"
+                type="file"
+                name="photo"
+                value={(editedPage.photo = '')}
+                onChange={handleFileUpload}
+              />
+            </>
+          )}
+          <input className="inp" type="file" name="photo" value={editedPage.photo} onChange={handleFileUpload} />
+          <label>
+            <h2>Content:</h2>
+          </label>
+          <input
+            className="textArea"
+            type="textarea"
+            name="content"
+            value={editedPage.content}
+            onChange={handleChange}
+          />
+          <button className="btn" type="submit">
+            Update Page
+          </button>
+        </form>
+        <button className="btn" onClick={deletePage}>
+          Delete Page
         </button>
-      </form>
-      <button className="btn" onClick={deletePage}>
-        Delete Page
-      </button>
-    </div>
+      </div>
+    </>
   );
 }
 

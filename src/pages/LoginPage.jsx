@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react';
-
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
+import Navbar from '../components/Navbar';
 
 function LoginPage() {
   const [email, setEmail] = useState('');
@@ -21,7 +21,7 @@ function LoginPage() {
 
     login(requestBody)
       .then(() => {
-        navigate('/');
+        navigate('/diaries');
       })
       .catch(error => {
         const errorDescription = error.response.data.message;
@@ -30,27 +30,30 @@ function LoginPage() {
   };
 
   return (
-    <div className="LoginPage container">
-      <h1>Login</h1>
-
-      <form onSubmit={handleLoginSubmit}>
-        <label>
-          <h2>Email:</h2>
-        </label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
-
-        <label>
-          <h2>Password:</h2>
-        </label>
-        <input type="password" name="password" value={password} onChange={handlePassword} />
-        <br />
-        <button type="submit">Login</button>
-      </form>
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
-
-      <p>Dont have an account yet?</p>
-      <Link to={'/signup'}> Sign Up</Link>
-    </div>
+    <>
+      <Navbar />
+      <div className="LoginPage container form">
+        <h1>Login</h1>
+        <form onSubmit={handleLoginSubmit}>
+          <label>
+            <h2>Email:</h2>
+          </label>
+          <input className="inp" type="email" name="email" value={email} onChange={handleEmail} />
+          <label>
+            <h2>Password:</h2>
+          </label>
+          <input className="inp" type="password" name="password" value={password} onChange={handlePassword} />
+          <br />
+          <button className="btn" type="submit">
+            Login
+          </button>
+        </form>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
+        <p>
+          Don t have an account yet? <Link to={'/signup'}> Sign Up</Link>
+        </p>
+      </div>
+    </>
   );
 }
 

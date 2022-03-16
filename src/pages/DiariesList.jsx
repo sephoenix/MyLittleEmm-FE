@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-/* import { Link } from 'react-router-dom'; */
 import Diary from '../components/Diary';
 import apiService from '../services/api.service';
+import Navbar from '../components/Navbar';
 
 function DiariesList() {
   const [diaries, setDiaries] = useState([]);
@@ -16,12 +16,17 @@ function DiariesList() {
   }, []);
 
   return (
-    <div className="diaries container">
-      <h1>My diaries</h1>
-      {diaries.map(diary => (
-        <Diary key={diary._id} id={diary._id} name={diary.name} />
-      ))}
-    </div>
+    <>
+      <Navbar />
+      <div className="container diaryList">
+        <h1>Diaries</h1>
+        <div className="diaries">
+          {diaries.map(diary => (
+            <Diary key={diary._id} id={diary._id} name={diary.name} />
+          ))}
+        </div>
+      </div>
+    </>
   );
 }
 export default DiariesList;

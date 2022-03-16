@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
 import apiService from '../services/api.service';
+import Navbar from '../components/Navbar';
 
 function UserProfile() {
   const [profile, setProfile] = useState([]);
@@ -33,17 +34,25 @@ function UserProfile() {
   console.log('profile', profile);
 
   return (
-    <div className="container">
-      <h1>Profile</h1>
-      <h2>Email: {profile.email}</h2>
-      <h2>Dad: {profile.dadName}</h2>
-      <h2>Mom: {profile.momName}</h2>
-      <h2>Baby: {profile.babyName}</h2>
-      <h2>Baby Birthday: {profile.babyBirthday}</h2>
-      <Link to="/user/edit/">
-        <button className="btn">Edit User</button>
-      </Link>
-    </div>
+    <>
+      <Navbar />
+      <div className="container form">
+        <h1>Profile</h1>
+        <h2>Email: </h2>
+        <h3>{profile.email}</h3>
+        <h2>Dad: </h2>
+        <h3>{profile.dadName}</h3>
+        <h2>Mom: </h2>
+        <h3>{profile.momName}</h3>
+        <h2>Baby: </h2>
+        <h3>{profile.babyName}</h3>
+        <h2>Baby Birthday: </h2>
+        <h3>{profile.babyBirthday}</h3>
+        <Link to="/user/edit/">
+          <button className="btn">Edit User</button>
+        </Link>
+      </div>
+    </>
   );
 }
 

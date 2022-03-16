@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import apiService from '../services/api.service';
+import Navbar from '../components/Navbar';
 
 function AddPage() {
   const navigate = useNavigate();
@@ -44,7 +45,7 @@ function AddPage() {
     e.preventDefault();
     apiService
       .postOnePage({
-        date: newPage.date.slice(0, 10),
+        date: newPage.date,
         type: newPage.type,
         photo: imageUrl,
         whoWrites: newPage.whoWrites,
@@ -59,50 +60,56 @@ function AddPage() {
       .catch(e => console.log(e));
   };
 
+  console.log(newPage.date);
+
   return (
-    <div className="container">
-      <form onSubmit={handleSubmit}>
-        <label>
-          <h2>Date:</h2>
-        </label>
-        <input type="date" name="date" value={newPage.date} onChange={handleChange} />
-        <label>
-          <h2>Type:</h2>
-        </label>
-        <select type="text" name="type" value={newPage.type} onChange={handleChange}>
-          {' '}
-          <option value="Info">Info</option>
-          <option value="Special Date">Special Date</option>
-          <option value="Anecdote">Anecdote</option>
-        </select>
-        <label>
-          <h2>Who Writes:</h2>
-        </label>
-        <select type="text" name="whoWrites" value={newPage.whoWrites} onChange={handleChange}>
-          {' '}
-          <option value="Dad">Dad</option>
-          <option value="Mom">Mom</option>
-        </select>
-        <label>
-          <h2>Baby Weight:</h2>
-        </label>
-        <input type="number" name="babyWeight" value={newPage.babyWeight} onChange={handleChange} />
-        <label>
-          <h2>Baby Height:</h2>
-        </label>
-        <input type="number" name="babyHeight" value={newPage.babyHeight} onChange={handleChange} />
-        <label>
-          <h2>Photo:</h2>
-        </label>
-        <input type="file" name="photo" value={newPage.photo} onChange={handleFileUpload} />
-        <label>
-          <h2>Content:</h2>
-        </label>
-        <input type="textarea" name="content" value={newPage.content} onChange={handleChange} />
-        <br />
-        <button type="submit">Create new Page</button>
-      </form>
-    </div>
+    <>
+      <Navbar />
+      <div className="container page">
+        <h1>Add Page</h1>
+        <form onSubmit={handleSubmit}>
+          <label>
+            <h2>Date:</h2>
+          </label>
+          <input className="inp" type="date" name="date" value={newPage.date} onChange={handleChange} />
+          <label>
+            <h2>Type:</h2>
+          </label>
+          <select className="inp" type="text" name="type" value={newPage.type} onChange={handleChange}>
+            <option value="Info">Info</option>
+            <option value="Special Date">Special Date</option>
+            <option value="Anecdote">Anecdote</option>
+          </select>
+          <label>
+            <h2>Who Writes:</h2>
+          </label>
+          <select className="inp" type="text" name="whoWrites" value={newPage.whoWrites} onChange={handleChange}>
+            <option value="Dad">Dad</option>
+            <option value="Mom">Mom</option>
+          </select>
+          <label>
+            <h2>Baby Weight:</h2>
+          </label>
+          <input className="inp" type="number" name="babyWeight" value={newPage.babyWeight} onChange={handleChange} />
+          <label>
+            <h2>Baby Height:</h2>
+          </label>
+          <input className="inp" type="number" name="babyHeight" value={newPage.babyHeight} onChange={handleChange} />
+          <label>
+            <h2>Photo:</h2>
+          </label>
+          <input className="inp" type="file" name="photo" value={newPage.photo} onChange={handleFileUpload} />
+          <label>
+            <h2>Content:</h2>
+          </label>
+          <input className="textArea" type="textarea" name="content" value={newPage.content} onChange={handleChange} />
+          <br />
+          <button className="btn" type="submit">
+            Create new Page
+          </button>
+        </form>
+      </div>
+    </>
   );
 }
 

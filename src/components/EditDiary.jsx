@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import apiService from '../services/api.service';
+import Navbar from '../components/Navbar';
 
 function EditDiary() {
   const [diary, setDiary] = useState({
@@ -48,18 +49,29 @@ function EditDiary() {
   };
 
   return (
-    <div className="container">
-      <form onSubmit={handleSubmit}>
-        <label>
-          <h2>Name:</h2>
-        </label>
-        <input type="text" name="name" value={diary.name} onChange={handleChange} />
-        <br />
-        <button type="submit">Edit Diary</button>
-        <br />
-        <button onClick={deleteDiary}>Delete Diary</button>
-      </form>
-    </div>
+    <>
+      <Navbar />
+      <div className="container form">
+        <form onSubmit={handleSubmit}>
+          <h1>Edit Diary</h1>
+          <div className="ml">
+            <label>
+              <h2>Name:</h2>
+            </label>
+            <input className="inp" type="text" name="name" value={diary.name} onChange={handleChange} />
+          </div>
+          <div className="twobtn">
+            <button className="btn" type="submit">
+              Update Diary
+            </button>
+            <br />
+            <button className="btn" onClick={deleteDiary}>
+              Delete Diary
+            </button>
+          </div>
+        </form>
+      </div>
+    </>
   );
 }
 

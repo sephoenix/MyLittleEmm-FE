@@ -4,7 +4,6 @@ import AddDiary from './components/AddDiary';
 import AddPage from './components/AddPage';
 import IsAnon from './components/IsAnon';
 import IsPrivate from './components/IsPrivate';
-import Navbar from './components/Navbar';
 import { AuthProviderWrapper } from './context/auth.context';
 import DiaryDetails from './pages/DiaryDetails';
 import DiariesList from './pages/DiariesList';
@@ -17,12 +16,13 @@ import EditDiary from './components/EditDiary';
 import EditPage from './components/EditPage';
 import UserProfile from './pages/UserProfile';
 import EditUser from './components/EditUser';
+import Error404 from './pages/Error404';
 
 function App() {
   return (
     <AuthProviderWrapper>
-      <Navbar />
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/diaries" element={<DiariesList />} />
         <Route
           path="/diaries/add"
@@ -88,7 +88,7 @@ function App() {
             </IsPrivate>
           }
         />
-        <Route path="/" element={<Home />} />
+
         <Route
           path="/protected"
           element={
@@ -113,7 +113,7 @@ function App() {
             </IsAnon>
           }
         />
-        <Route path="*" element={<div>404 Not Found</div>} />
+        <Route path="*" element={<Error404 />} />
       </Routes>
     </AuthProviderWrapper>
   );

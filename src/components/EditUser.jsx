@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/auth.context';
 import apiService from '../services/api.service';
+import Navbar from '../components/Navbar';
 
 function EditUser() {
   const [editedUser, setEditedUser] = useState({
@@ -52,28 +53,40 @@ function EditUser() {
   console.log(editedUser);
 
   return (
-    <div className="container">
-      <form onSubmit={handleSubmit}>
-        <label>
-          <h1>Dad:</h1>
-        </label>
-        <input type="text" name="dadName" value={editedUser.dadName} onChange={handleChange} />
-        <label>
-          <h1>Mom:</h1>
-        </label>
-        <input type="text" name="momName" value={editedUser.momName} onChange={handleChange} />
-        <label>
-          <h1>Baby</h1>
-        </label>
-        <input type="text" name="babyName" value={editedUser.babyName} onChange={handleChange} />
-        <label>
-          <h1>Baby Birthday</h1>
-        </label>
-        <input type="date" name="babyBirthday" value={editedUser.babyBirthday} onChange={handleChange} />
-        <br />
-        <button type="submit">Edit User</button>
-      </form>
-    </div>
+    <>
+      <Navbar />
+      <div className="container form">
+        <h1>Edit User</h1>
+        <form onSubmit={handleSubmit}>
+          <label>
+            <h2>Dad:</h2>
+          </label>
+          <input className="inp" type="text" name="dadName" value={editedUser.dadName} onChange={handleChange} />
+          <label>
+            <h2>Mom:</h2>
+          </label>
+          <input className="inp" type="text" name="momName" value={editedUser.momName} onChange={handleChange} />
+          <label>
+            <h2>Baby</h2>
+          </label>
+          <input className="inp" type="text" name="babyName" value={editedUser.babyName} onChange={handleChange} />
+          <label>
+            <h2>Baby Birthday</h2>
+          </label>
+          <input
+            className="inp"
+            type="date"
+            name="babyBirthday"
+            value={editedUser.babyBirthday}
+            onChange={handleChange}
+          />
+          <br />
+          <button className="btn" type="submit">
+            Update
+          </button>
+        </form>
+      </div>
+    </>
   );
 }
 
