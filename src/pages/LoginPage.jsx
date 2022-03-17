@@ -35,18 +35,21 @@ function LoginPage() {
       <div className="LoginPage container form">
         <h1>Login</h1>
         <form onSubmit={handleLoginSubmit}>
-          <label>
-            <h2>Email:</h2>
-          </label>
-          <input className="inp" type="email" name="email" value={email} onChange={handleEmail} />
-          <label>
-            <h2>Password:</h2>
-          </label>
-          <input className="inp" type="password" name="password" value={password} onChange={handlePassword} />
-          <br />
-          <button className="btn" type="submit">
-            Login
-          </button>
+          <div className="homeDiv">
+            <label>
+              <h2>Email</h2>
+            </label>
+
+            <input className="inp" type="email" name="email" value={email} onChange={handleEmail} />
+            <label>
+              <h2>Password</h2>
+            </label>
+            <input className="inp" type="password" name="password" value={password} onChange={handlePassword} />
+            <br />
+            <button className="btn" type="submit">
+              Login
+            </button>
+          </div>
         </form>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
         <p>

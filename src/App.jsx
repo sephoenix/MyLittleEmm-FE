@@ -28,7 +28,7 @@ function App() {
         <Route path="/diaries" element={<DiariesList />} />
 
         <Route
-          path="/mydiaries"
+          path="/diaries/myDiaries"
           element={
             <IsPrivate>
               <MyDiariesList />

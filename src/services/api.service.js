@@ -41,8 +41,8 @@ class ApiService {
     return this.api.get('/api/diaries');
   };
 
-  getMyDiaries = () => {
-    return this.api.get('api/mydiaries');
+  getMyDiaries = id => {
+    return this.api.get('api/diaries/myDiaries', id);
   };
 
   addADiary = requestBody => {

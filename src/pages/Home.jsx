@@ -1,6 +1,15 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 function Home() {
+  useEffect(() => {
+    document.body.style.backgroundColor = '#6d4ba4'; // Background color of Homepage
+
+    return () => {
+      document.body.style.backgroundColor = '#f5def5'; // Background color of the rest of the pages
+    };
+  }, []);
+
   return (
     <div className="container home">
       <div className="title">My Little Emm</div>
