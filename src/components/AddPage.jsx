@@ -76,6 +76,7 @@ function AddPage() {
             <h2>Type:</h2>
           </label>
           <select className="inp" type="text" name="type" value={newPage.type} onChange={handleChange}>
+            <option defaultValue>-- Select an option -- </option>
             <option value="Info">Info</option>
             <option value="Special Date">Special Date</option>
             <option value="Anecdote">Anecdote</option>
@@ -84,6 +85,7 @@ function AddPage() {
             <h2>Who Writes:</h2>
           </label>
           <select className="inp" type="text" name="whoWrites" value={newPage.whoWrites} onChange={handleChange}>
+            <option defaultValue>-- Select an option -- </option>
             <option value="Dad">Dad</option>
             <option value="Mom">Mom</option>
           </select>

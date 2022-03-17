@@ -35,15 +35,15 @@ function AddDiary() {
       <div className="container form">
         <h1>Add Diary</h1>
         <form onSubmit={handleSubmit}>
-          <div className="ml">
-            <label>
-              <h2>Name:</h2>
-            </label>
+          <label>
+            <h2 className="ml">Name:</h2>
+          </label>
+          <div className="homeDiv">
             <input className="inp" type="text" name="name" value={diary.name} onChange={handleChange} />
+            <button className="btn center" type="submit">
+              Create new Diary
+            </button>
           </div>
-          <button className="btn center" type="submit">
-            Create new Diary
-          </button>
         </form>
       </div>
     </>

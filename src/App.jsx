@@ -17,13 +17,24 @@ import EditPage from './components/EditPage';
 import UserProfile from './pages/UserProfile';
 import EditUser from './components/EditUser';
 import Error404 from './pages/Error404';
+import MyDiariesList from './pages/MyDiariesList';
 
 function App() {
   return (
     <AuthProviderWrapper>
       <Routes>
         <Route path="/" element={<Home />} />
+
         <Route path="/diaries" element={<DiariesList />} />
+
+        <Route
+          path="/mydiaries"
+          element={
+            <IsPrivate>
+              <MyDiariesList />
+            </IsPrivate>
+          }
+        />
         <Route
           path="/diaries/add"
           element={

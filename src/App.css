@@ -3,7 +3,6 @@ body {
   font-size: 16px;
   font-family: 'Rubik', sans-serif;
   font-style: normal;
-  background-color: var(--pink-color);
 }
 
 :root {
@@ -20,7 +19,7 @@ body {
   max-width: 375px;
   width: 100%;
   margin: 0 auto;
-  position: relative;
+  background-color: var(--pink-color);
 }
 
 .Navbar {
@@ -192,4 +191,14 @@ p {
 
 .ml {
   margin-left: 40px;
+}
+
+.homeDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inp option {
+  font-size: 100px;
 }

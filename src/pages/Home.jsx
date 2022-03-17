@@ -4,7 +4,7 @@ function Home() {
   return (
     <div className="container home">
       <div className="title">My Little Emm</div>
-      <div>
+      <div className="homeDiv">
         <svg width="224" height="199" viewBox="0 0 224 199" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M62.2222 28.7444H174.222V37.3125H62.2222V28.7444Z" fill="#F5DEF5" />
           <path
@@ -16,17 +16,15 @@ function Home() {
             fill="#F5DEF5"
           />
         </svg>
-        <div>
-          {/*           <Link to={'/signup'}>
-            <button className="btnInv">Create account</button>
-          </Link>
-          <Link to={'/login'}>
-            <button className="btnInv">Login</button>
-          </Link> */}
-          <Link to={'/diaries'}>
-            <button className="btnInv">Look the diaries</button>
-          </Link>
-        </div>
+        <Link to={'/diaries'}>
+          <button className="btnInv">Look the diaries</button>
+        </Link>
+        <Link to={'/signup'}>
+          <button className="btnInv">Create account</button>
+        </Link>
+        <Link to={'/login'}>
+          <button className="btnInv">Login</button>
+        </Link>
       </div>
     </div>
   );
