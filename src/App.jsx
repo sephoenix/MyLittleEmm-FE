@@ -18,8 +18,12 @@ import UserProfile from './pages/UserProfile';
 import EditUser from './components/EditUser';
 import Error404 from './pages/Error404';
 import MyDiariesList from './pages/MyDiariesList';
+import { useEffect } from 'react';
 
 function App() {
+  useEffect(() => {
+    document.title = 'My little Emm';
+  }, []);
   return (
     <AuthProviderWrapper>
       <Routes>

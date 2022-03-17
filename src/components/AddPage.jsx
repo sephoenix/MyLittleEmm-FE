@@ -45,7 +45,7 @@ function AddPage() {
     e.preventDefault();
     apiService
       .postOnePage({
-        date: newPage.date,
+        date: newPage.date.slice(0, 10),
         type: newPage.type,
         photo: imageUrl,
         whoWrites: newPage.whoWrites,

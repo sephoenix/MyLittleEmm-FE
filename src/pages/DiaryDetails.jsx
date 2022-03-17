@@ -6,7 +6,7 @@ import Navbar from '../components/Navbar';
 
 function DiaryDetail() {
   const { diaryId } = useParams();
-  const [pages, setPages] = useState([]);
+  const [pages, setPages] = useState({});
   const { user } = useContext(AuthContext);
   const [owner, setOwner] = useState('');
 
@@ -34,17 +34,17 @@ function DiaryDetail() {
       <Navbar />
       <div className="container page">
         <h1>Pages</h1>
-        <div /* className="pages" */>
+        <div>
           {pages.length > 0 ? (
             <ul>
               {pages.map(page => (
                 <Link key={page._id} image={page.photo} to={`/pages/${page._id}`}>
-                  <li className="pageCard">
+                  <li className="pageCard" style={{ backgroundImage: `url(${page.photo})` }}>
                     <h3>
                       {page.date.slice(0, 10)}
                       <br />
                       {page.whoWrites}:
-                    </h3>{' '}
+                    </h3>
                     <p>{page.content}</p>
                   </li>
                 </Link>
