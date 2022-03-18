@@ -69,11 +69,12 @@ function AddPage() {
         <h1>Add Page</h1>
         <form onSubmit={handleSubmit}>
           <label>
-            <h2>Date:</h2>
+            <h2>Date</h2>
           </label>
           <input className="inp" type="date" name="date" value={newPage.date} onChange={handleChange} />
+
           <label>
-            <h2>Type:</h2>
+            <h2>Type</h2>
           </label>
           <select className="inp" type="text" name="type" value={newPage.type} onChange={handleChange}>
             <option defaultValue>-- Select an option -- </option>
@@ -81,34 +82,48 @@ function AddPage() {
             <option value="Special Date">Special Date</option>
             <option value="Anecdote">Anecdote</option>
           </select>
+
           <label>
-            <h2>Who Writes:</h2>
+            <h2>Who Writes</h2>
           </label>
           <select className="inp" type="text" name="whoWrites" value={newPage.whoWrites} onChange={handleChange}>
             <option defaultValue>-- Select an option -- </option>
             <option value="Dad">Dad</option>
             <option value="Mom">Mom</option>
           </select>
+
           <label>
-            <h2>Baby Weight:</h2>
+            <h2>Baby Weight</h2>
           </label>
           <input className="inp" type="number" name="babyWeight" value={newPage.babyWeight} onChange={handleChange} />
+
           <label>
-            <h2>Baby Height:</h2>
+            <h2>Baby Height</h2>
           </label>
           <input className="inp" type="number" name="babyHeight" value={newPage.babyHeight} onChange={handleChange} />
+
           <label>
-            <h2>Photo:</h2>
+            <h2>Photo</h2>
           </label>
           <input className="inp" type="file" name="photo" value={newPage.photo} onChange={handleFileUpload} />
+
           <label>
-            <h2>Content:</h2>
+            <h2>Content</h2>
           </label>
-          <input className="textArea" type="textarea" name="content" value={newPage.content} onChange={handleChange} />
-          <br />
-          <button className="btn" type="submit">
-            Create new Page
-          </button>
+          <div className="centerBtn">
+            <input
+              className="textArea"
+              type="textarea"
+              name="content"
+              value={newPage.content}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="centerBtn">
+            <button className="btn" type="submit">
+              Create new Page
+            </button>
+          </div>
         </form>
       </div>
     </>

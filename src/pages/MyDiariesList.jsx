@@ -20,12 +20,14 @@ function MyDiariesList() {
       .catch(err => console.log(err));
   }, []);
 
+  const tab = '\u00A0';
+
   return (
     <>
       <Navbar />
       <div className="container diaryList">
         <h1 className="pageAddIcon">
-          My Diaries
+          My Diaries{tab}
           <Link to="/diaries/add">
             <button>
               <svg

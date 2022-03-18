@@ -48,7 +48,7 @@ function SignupPage() {
         <h1>Sign Up</h1>
         <form onSubmit={handleSignupSubmit}>
           <label>
-            <h2>Email:</h2>
+            <h2>Email</h2>
           </label>
           <input className="inp" type="email" name="email" value={email} onChange={handleEmail} />
 
@@ -58,17 +58,17 @@ function SignupPage() {
           <input className="inp" type="password" name="password" value={password} onChange={handlePassword} />
 
           <label>
-            <h2>Dad:</h2>
+            <h2>Dad</h2>
           </label>
           <input className="inp" type="text" name="dadName" value={dadName} onChange={handleDadName} />
 
           <label>
-            <h2>Mom:</h2>
+            <h2>Mom</h2>
           </label>
           <input className="inp" type="text" name="momName" value={momName} onChange={handleMomName} />
 
           <label>
-            <h2>Baby:</h2>
+            <h2>Baby</h2>
           </label>
           <input className="inp" type="text" name="babyName" value={babyName} onChange={handleBabyName} />
 
@@ -76,10 +76,12 @@ function SignupPage() {
             <h2>Birthday</h2>
           </label>
           <input className="inp" type="date" name="babyBirthday" value={babyBirthday} onChange={handlebabyBirthday} />
-          <br />
-          <button className="btn" type="submit">
-            Submit
-          </button>
+
+          <div className="centerBtn">
+            <button className="btn" type="submit">
+              Submit
+            </button>
+          </div>
         </form>
 
         {errorMessage && <p className="error-message">{errorMessage}</p>}

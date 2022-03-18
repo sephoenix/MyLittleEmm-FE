@@ -56,7 +56,7 @@ function EditDiary() {
           <h1>Edit Diary</h1>
           <div className="ml">
             <label>
-              <h2>Name:</h2>
+              <h2>Rename</h2>
             </label>
             <input className="inp" type="text" name="name" value={diary.name} onChange={handleChange} />
           </div>

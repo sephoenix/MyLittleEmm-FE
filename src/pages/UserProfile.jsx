@@ -38,19 +38,21 @@ function UserProfile() {
       <Navbar />
       <div className="container form">
         <h1>Profile</h1>
-        <h2>Email: </h2>
+        <h2>Email </h2>
         <h3>{profile.email}</h3>
-        <h2>Dad: </h2>
+        <h2>Dad </h2>
         <h3>{profile.dadName}</h3>
-        <h2>Mom: </h2>
+        <h2>Mom </h2>
         <h3>{profile.momName}</h3>
-        <h2>Baby: </h2>
+        <h2>Baby </h2>
         <h3>{profile.babyName}</h3>
-        <h2>Baby Birthday: </h2>
+        <h2>Baby Birthday </h2>
         <h3>{profile.babyBirthday}</h3>
-        <Link to="/user/edit/">
-          <button className="btn">Edit User</button>
-        </Link>
+        <div className="centerBtn">
+          <Link to="/user/edit/">
+            <button className="btn">Edit User</button>
+          </Link>
+        </div>
       </div>
     </>
   );

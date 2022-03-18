@@ -15,7 +15,7 @@ body {
 }
 
 .container {
-  padding: 0px 20px 100px;
+  padding: 0px 25px 100px;
   min-height: 100vh;
   max-width: 375px;
   width: 100%;
@@ -51,16 +51,19 @@ h1 {
   font-size: 30px;
   text-align: center;
   font-weight: 700;
-  padding-bottom: 5px;
+  padding-bottom: 10px;
 }
 
 h2 {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
+  padding-left: 10%;
 }
 
 h3 {
   font-size: 18px;
+  padding-left: 10%;
+  padding-bottom: 14px;
 }
 
 p {
@@ -72,13 +75,15 @@ p {
 
 .pageCard {
   width: 300px;
-  padding: 2px;
+  padding: 10px;
   height: auto;
   display: flex;
   flex-direction: column;
   border-radius: 10px;
   background-size: cover;
   background-position: center;
+  color: var(--white-color);
+  border: 1px solid var(--purple-color);
 }
 
 .btn {
@@ -127,7 +132,7 @@ p {
 }
 
 .page {
-  padding-top: 100px;
+  padding-top: 85px;
   color: var(--purple-color);
   display: flex;
   align-items: center;
@@ -150,14 +155,14 @@ p {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  justify-content: center;
-  gap: 35px 43px;
+  justify-content: flex-start;
+  gap: 28px;
   padding-top: 20px;
   padding-bottom: 0;
 }
 
 .pageDetail {
-  padding-top: 100px;
+  padding-top: 85px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -172,12 +177,12 @@ p {
 }
 
 .diaryList {
-  padding-top: 100px;
+  padding-top: 85px;
   color: var(--purple-color);
 }
 
 .form {
-  padding-top: 100px;
+  padding-top: 85px;
   color: var(--purple-color);
   display: flex;
   flex-direction: column;
@@ -186,15 +191,19 @@ p {
 }
 
 .inp {
-  margin-bottom: 10px;
+  margin-bottom: 18px;
   border-radius: 5px;
+  margin-left: 10%;
   width: 80%;
 }
 
 .textArea {
   border-radius: 5px;
-  width: 100%;
+  width: 260px;
   height: 80px;
+  box-sizing: border-box;
+  resize: none;
+  border: 2px solid #ccc;
 }
 
 .add {
@@ -202,10 +211,6 @@ p {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-.ml {
-  margin-left: 40px;
 }
 
 .homeDiv {
@@ -216,4 +221,18 @@ p {
 
 .inp option {
   font-size: 100px;
+}
+
+.centerBtn {
+  display: flex;
+  justify-content: center;
+}
+
+.editInp {
+  width: 80%;
+}
+
+img {
+  border: 2px solid var(--purple-color);
+  border-radius: 5px;
 }

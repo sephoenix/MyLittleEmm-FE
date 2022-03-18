@@ -61,6 +61,10 @@ class ApiService {
     return this.api.delete(`/api/diaries/${diaryId}/delete`);
   };
 
+  deleteOneUser = userId => {
+    return this.api.delete(`/api/user/${userId}/delete`);
+  };
+
   postOnePage = requestBody => {
     return this.api.post(`/api/pages/add`, requestBody);
   };

@@ -32,24 +32,25 @@ function DiaryDetail() {
   return (
     <>
       <Navbar />
-      <div className="container page">
+      <div className="page">
         <h1>Pages</h1>
         <div>
           {pages.length > 0 ? (
-            <ul>
+            <div>
               {pages.map(page => (
                 <Link key={page._id} image={page.photo} to={`/pages/${page._id}`}>
-                  <li className="pageCard" style={{ backgroundImage: `url(${page.photo})` }}>
+                  <div className="pageCard" style={{ backgroundImage: `url(${page.photo})` }}>
                     <h3>
                       {page.date.slice(0, 10)}
                       <br />
                       {page.whoWrites}:
                     </h3>
                     <p>{page.content}</p>
-                  </li>
+                  </div>
+                  <br />
                 </Link>
               ))}
-            </ul>
+            </div>
           ) : (
             <p>There are no pages written yet in this diary. Create one!</p>
           )}

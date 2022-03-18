@@ -85,35 +85,39 @@ function EditPage() {
         <h1>Edit Page</h1>
         <form onSubmit={handleSubmit}>
           <label>
-            <h2>Date:</h2>
+            <h2>Date</h2>
           </label>
           <input className="inp" type="date" name="date" value={editedPage.date} onChange={handleChange} />
+
           <label>
-            <h2>Type:</h2>
+            <h2>Type</h2>
           </label>
-          <input type="text" name="type" value={editedPage.type} onChange={handleChange} />
-          <select type="text" name="type" value={editedPage.type} onChange={handleChange}>
+          <select className="inp" type="text" name="type" value={editedPage.type} onChange={handleChange}>
             <option value="Info">Info</option>
             <option value="Special Date">Special Date</option>
             <option value="Anecdote">Anecdote</option>
           </select>
+
           <label>
-            <h2>Who Writes:</h2>
+            <h2>Who Writes</h2>
           </label>
           <select className="inp" type="text" name="whoWrites" value={editedPage.whoWrites} onChange={handleChange}>
             <option value="Dad">Dad</option>
             <option value="Mom">Mom</option>
           </select>
+
           <label>
-            <h2>Baby Weight:</h2>
+            <h2>Baby Weight</h2>
           </label>
           <input className="inp" type="text" name="babyWeight" value={editedPage.babyWeight} onChange={handleChange} />
+
           <label>
-            <h2>Baby Height:</h2>
+            <h2>Baby Height</h2>
           </label>
           <input className="inp" type="text" name="babyHeight" value={editedPage.babyHeight} onChange={handleChange} />
+
           <label>
-            <h2>Photo:</h2>
+            <h2>Photo</h2>
           </label>
           {editedPage.photo && (
             <>
@@ -127,23 +131,32 @@ function EditPage() {
             </>
           )}
           <input className="inp" type="file" name="photo" value={editedPage.photo} onChange={handleFileUpload} />
+
           <label>
-            <h2>Content:</h2>
+            <h2>Content</h2>
           </label>
-          <input
-            className="textArea"
-            type="textarea"
-            name="content"
-            value={editedPage.content}
-            onChange={handleChange}
-          />
-          <button className="btn" type="submit">
-            Update Page
-          </button>
+          <div className="centerBtn">
+            <input
+              className="textArea"
+              type="textarea"
+              name="content"
+              value={editedPage.content}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className="centerBtn">
+            <button className="btn" type="submit">
+              Update Page
+            </button>
+          </div>
         </form>
-        <button className="btn" onClick={deletePage}>
-          Delete Page
-        </button>
+
+        <div className="centerBtn">
+          <button className="btn" onClick={deletePage}>
+            Delete Page
+          </button>
+        </div>
       </div>
     </>
   );

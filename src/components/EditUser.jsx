@@ -12,7 +12,7 @@ function EditUser() {
     babyBirthday: '',
   });
 
-  const { user } = useContext(AuthContext);
+  const { user, logOutUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -50,6 +50,15 @@ function EditUser() {
       .catch(err => console.log(err));
   };
 
+  const deleteUser = () => {
+    apiService
+      .deleteOneUser(user._id)
+      .then(() => {
+        logOutUser();
+      })
+      .catch(err => console.log(err));
+  };
+
   console.log(editedUser);
 
   return (
@@ -59,11 +68,11 @@ function EditUser() {
         <h1>Edit User</h1>
         <form onSubmit={handleSubmit}>
           <label>
-            <h2>Dad:</h2>
+            <h2>Dad</h2>
           </label>
           <input className="inp" type="text" name="dadName" value={editedUser.dadName} onChange={handleChange} />
           <label>
-            <h2>Mom:</h2>
+            <h2>Mom</h2>
           </label>
           <input className="inp" type="text" name="momName" value={editedUser.momName} onChange={handleChange} />
           <label>
@@ -80,11 +89,18 @@ function EditUser() {
             value={editedUser.babyBirthday}
             onChange={handleChange}
           />
-          <br />
-          <button className="btn" type="submit">
-            Update
-          </button>
+          <div className="centerBtn">
+            <button className="btn" type="submit">
+              Update
+            </button>
+          </div>
         </form>
+
+        <div className="centerBtn">
+          <button className="btn homeDiv" onClick={deleteUser}>
+            Delete User
+          </button>
+        </div>
       </div>
     </>
   );
