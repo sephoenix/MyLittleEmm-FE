@@ -9,15 +9,17 @@ function DiaryDetail() {
   const [pages, setPages] = useState({});
   const { user } = useContext(AuthContext);
   const [owner, setOwner] = useState('');
+  const [diary, setDiary] = useState('');
 
   useEffect(() => {
     apiService
       .getDiaryById(diaryId)
       .then(response => {
+        setDiary(response.data.name);
         setOwner(response.data.owner);
       })
       .catch(err => console.log(err));
-  }, []);
+  }, [diaryId]);
 
   useEffect(() => {
     apiService
@@ -27,27 +29,38 @@ function DiaryDetail() {
       })
       .catch(err => console.log(err));
   }, []);
+
   console.log(pages);
 
   return (
     <>
       <Navbar />
       <div className="page">
-        <h1>Pages</h1>
+        <h1>{diary}</h1>
         <div>
           {pages.length > 0 ? (
             <div>
               {pages.map(page => (
                 <Link key={page._id} image={page.photo} to={`/pages/${page._id}`}>
-                  <div className="pageCard" style={{ backgroundImage: `url(${page.photo})` }}>
-                    <h3>
-                      {page.date.slice(0, 10)}
-                      <br />
-                      {page.whoWrites}:
-                    </h3>
-                    <p>{page.content}</p>
-                  </div>
-                  <br />
+                  {`${page.photo}` ? (
+                    <div className="pageCard" style={{ backgroundImage: `url(${page.photo})` }}>
+                      <h3>
+                        {page.date.slice(0, 10)}
+                        <br />
+                        {page.whoWrites}:
+                      </h3>
+                      <p>{page.content}</p>
+                    </div>
+                  ) : (
+                    <div className="pageCard">
+                      <h3>
+                        {page.date.slice(0, 10)}
+                        <br />
+                        {page.whoWrites}:
+                      </h3>
+                      <p>{page.content}</p>
+                    </div>
+                  )}
                 </Link>
               ))}
             </div>

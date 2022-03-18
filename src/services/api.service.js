@@ -61,10 +61,6 @@ class ApiService {
     return this.api.delete(`/api/diaries/${diaryId}/delete`);
   };
 
-  deleteOneUser = userId => {
-    return this.api.delete(`/api/user/${userId}/delete`);
-  };
-
   postOnePage = requestBody => {
     return this.api.post(`/api/pages/add`, requestBody);
   };
@@ -89,12 +85,20 @@ class ApiService {
     return this.api.delete(`/api/pages/${pageId}/delete`);
   };
 
+  deleteAllDiaryPages = diaryId => {
+    return this.api.delete(`/api/pages/diaries/${diaryId}/delete`);
+  };
+
   getUser = () => {
     return this.api.get(`/api/user/`);
   };
 
   editUser = requestBody => {
     return this.api.put(`/api/user/edit`, requestBody);
+  };
+
+  deleteOneUser = userId => {
+    return this.api.delete(`/api/user/${userId}/delete`);
   };
 
   uploadImage = file => {

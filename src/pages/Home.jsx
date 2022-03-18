@@ -1,7 +1,9 @@
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../context/auth.context';
 
 function Home() {
+  const { isLoggedIn } = useContext(AuthContext);
   useEffect(() => {
     document.body.style.backgroundColor = '#6d4ba4'; // Background color of Homepage
 
@@ -28,12 +30,16 @@ function Home() {
         <Link to={'/diaries'}>
           <button className="btnInv">Look the diaries</button>
         </Link>
-        <Link to={'/signup'}>
-          <button className="btnInv">Create account</button>
-        </Link>
-        <Link to={'/login'}>
-          <button className="btnInv">Login</button>
-        </Link>
+        {!isLoggedIn && (
+          <>
+            <Link to={'/signup'}>
+              <button className="btnInv">Create account</button>
+            </Link>
+            <Link to={'/login'}>
+              <button className="btnInv">Login</button>
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );

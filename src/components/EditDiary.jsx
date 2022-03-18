@@ -9,6 +9,7 @@ function EditDiary() {
   });
   const { diaryId } = useParams();
   const navigate = useNavigate();
+  /*  const [pages, setPages] = useState({}); */
 
   useEffect(() => {
     apiService
@@ -18,6 +19,17 @@ function EditDiary() {
       })
       .catch(err => console.log(err));
   }, []);
+
+  /*   useEffect(() => {
+    apiService
+      .getDiaryPages(diaryId)
+      .then(response => {
+        setPages(response.data);
+      })
+      .catch(err => console.log(err));
+  }, []);
+
+  console.log('prueba', pages); */
 
   const handleChange = e => {
     setDiary(prev => {
@@ -42,6 +54,10 @@ function EditDiary() {
   const deleteDiary = () => {
     apiService
       .deleteDiary(diaryId)
+      /*       .deleteAllDiaryPages(diaryId)
+      .then(() => {
+        deleteDiary(diaryId); //TODO
+      }) */
       .then(() => {
         navigate(`/diaries`);
       })
@@ -60,16 +76,17 @@ function EditDiary() {
             </label>
             <input className="inp" type="text" name="name" value={diary.name} onChange={handleChange} />
           </div>
-          <div className="twobtn">
+          <div className="centerBtn">
             <button className="btn" type="submit">
               Update Diary
             </button>
-            <br />
-            <button className="btn" onClick={deleteDiary}>
-              Delete Diary
-            </button>
           </div>
         </form>
+        <div className="centerBtn">
+          <button className="btn" onClick={deleteDiary}>
+            Delete Diary
+          </button>
+        </div>
       </div>
     </>
   );
