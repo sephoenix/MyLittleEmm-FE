@@ -111,10 +111,11 @@ function AddPage() {
             <h2>Content</h2>
           </label>
           <div className="centerBtn">
-            <input
+            <textarea
               className="textArea"
-              type="textarea"
               name="content"
+              cols={4}
+              rows={4}
               value={newPage.content}
               onChange={handleChange}
             />

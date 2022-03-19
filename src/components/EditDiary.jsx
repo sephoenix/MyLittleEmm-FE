@@ -9,7 +9,6 @@ function EditDiary() {
   });
   const { diaryId } = useParams();
   const navigate = useNavigate();
-  /*  const [pages, setPages] = useState({}); */
 
   useEffect(() => {
     apiService
@@ -19,17 +18,6 @@ function EditDiary() {
       })
       .catch(err => console.log(err));
   }, []);
-
-  /*   useEffect(() => {
-    apiService
-      .getDiaryPages(diaryId)
-      .then(response => {
-        setPages(response.data);
-      })
-      .catch(err => console.log(err));
-  }, []);
-
-  console.log('prueba', pages); */
 
   const handleChange = e => {
     setDiary(prev => {
@@ -54,10 +42,6 @@ function EditDiary() {
   const deleteDiary = () => {
     apiService
       .deleteDiary(diaryId)
-      /*       .deleteAllDiaryPages(diaryId)
-      .then(() => {
-        deleteDiary(diaryId); //TODO
-      }) */
       .then(() => {
         navigate(`/diaries`);
       })
