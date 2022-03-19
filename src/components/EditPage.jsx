@@ -136,13 +136,7 @@ function EditPage() {
             <h2>Content</h2>
           </label>
           <div className="centerBtn">
-            <input
-              className="textArea"
-              type="textarea"
-              name="content"
-              value={editedPage.content}
-              onChange={handleChange}
-            />
+            <textarea className="textArea" name="content" value={editedPage.content} onChange={handleChange} />
           </div>
 
           <div className="centerBtn">
