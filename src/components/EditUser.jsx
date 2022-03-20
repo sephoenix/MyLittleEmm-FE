@@ -28,7 +28,7 @@ function EditUser() {
         setEditedUser(newProfile[0]);
       })
       .catch(err => console.log(err));
-  }, []);
+  }, [user._id]);
 
   const handleChange = e => {
     setEditedUser(prev => {

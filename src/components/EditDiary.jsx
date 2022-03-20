@@ -17,7 +17,7 @@ function EditDiary() {
         setDiary(response.data);
       })
       .catch(err => console.log(err));
-  }, []);
+  }, [diaryId]);
 
   const handleChange = e => {
     setDiary(prev => {

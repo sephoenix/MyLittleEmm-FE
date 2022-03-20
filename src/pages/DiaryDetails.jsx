@@ -28,7 +28,7 @@ function DiaryDetail() {
         setPages(response.data);
       })
       .catch(err => console.log(err));
-  }, []);
+  }, [diaryId]);
 
   console.log(pages);
 

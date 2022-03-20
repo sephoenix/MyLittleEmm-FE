@@ -26,7 +26,7 @@ function EditPage() {
         setImageUrl(response.data.fileUrl);
       })
       .catch(err => console.log(err));
-  }, []);
+  }, [pageId]);
 
   const handleChange = e => {
     setEditedPage(prev => {

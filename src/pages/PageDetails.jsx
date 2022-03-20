@@ -17,7 +17,7 @@ function PageDetails() {
         setOwner(response.data.diary.owner);
       })
       .catch(err => console.log(err));
-  }, []);
+  }, [pageId]);
   console.log('owner', owner);
 
   useEffect(() => {
@@ -37,7 +37,7 @@ function PageDetails() {
         });
       })
       .catch(err => console.log(err));
-  }, []);
+  }, [pageId]);
   console.log(page);
 
   return (

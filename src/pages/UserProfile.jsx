@@ -30,7 +30,7 @@ function UserProfile() {
         });
       })
       .catch(err => console.log(err));
-  }, []);
+  }, [user._id]);
   console.log('profile', profile);
 
   return (

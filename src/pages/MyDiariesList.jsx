@@ -18,7 +18,7 @@ function MyDiariesList() {
         setDiaries(response.data);
       })
       .catch(err => console.log(err));
-  }, []);
+  }, [user._id]);
 
   const tab = '\u00A0';
 
